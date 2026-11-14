@@ -1,5 +1,6 @@
 import {DEFAULT_RUNTIME} from './reliability.mjs';
 import {DEFAULT_FREE_TIER,validateFreeTier} from './budget.mjs';
+import {validateDate} from './schedule.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -44,6 +45,11 @@ export function validateSettings(config) {
   for (const slot of config.slots) {
     if (!/^[a-z]+$/.test(slot.id) || ids.has(slot.id) || !/^([01]\d|2[0-3]):[0-5]\d$/.test(slot.time) || times.has(slot.time) || !['tip','material','quiz'].includes(slot.format) || !['kk','ru'].includes(slot.language)) throw new Error('Invalid or duplicate daily slot');
     ids.add(slot.id); times.add(slot.time);
+  }
+  if(config.languageRotation!==undefined) {
+    const rotation=config.languageRotation,kk=config.slots.filter(s=>s.language==='kk').length;
+    if(!rotation||rotation.mode!=='alternate-days'||config.slots.length!==3||![1,2].includes(kk))throw new Error('Language rotation requires three mixed Kazakh/Russian slots and alternate-days mode');
+    validateDate(rotation.startDate);
   }
   const g = config.gemini;
   if (!g || !/^[a-z0-9.-]+$/.test(g.model) || !/^[a-z0-9.-]+$/.test(g.ttsModel) || !/^[A-Za-z0-9_-]+$/.test(g.voice)) throw new Error('Invalid Gemini model or voice');

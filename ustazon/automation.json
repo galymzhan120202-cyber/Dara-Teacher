@@ -21,6 +21,10 @@
       "language": "ru"
     }
   ],
+  "languageRotation": {
+    "mode": "alternate-days",
+    "startDate": "2026-11-15"
+  },
   "gemini": {
     "model": "gemini-3.8-flash",
     "voiceEnabled": true,

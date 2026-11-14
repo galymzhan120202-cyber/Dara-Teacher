@@ -21,6 +21,16 @@ export function zonedTime(date,time,timezone) {
   }
   throw new Error('Could not resolve slot in configured timezone');
 }
+export function slotsForDate(date,config) {
+  validateDate(date);
+  if(!config.languageRotation)return config.slots;
+  const {mode,startDate}=config.languageRotation;
+  if(mode!=='alternate-days')throw new Error('Unknown language rotation mode');
+  validateDate(startDate);
+  const days=(Date.parse(date+'T00:00:00Z')-Date.parse(startDate+'T00:00:00Z'))/86400000;
+  if(days<0||days%2===0)return config.slots;
+  return config.slots.map(slot=>({...slot,language:slot.language==='kk'?'ru':'kk'}));
+}
 export function planDay(state,date,config) {
   validateDate(date);
   const existing=state.jobs.filter(job=>job.date===date && job.slot!=='sample');
@@ -28,7 +38,7 @@ export function planDay(state,date,config) {
   if(existing.length)return existing;
   const carry=config.runtime?.carryUnfinished?state.jobs.filter(j=>j.date<date&&j.slot!=='sample'&&!j.youtube?.videoId&&!j.youtube?.sessionUrl&&!j.youtube?.initiating&&j.status!=='uploaded'&&!Object.values(j.retries||{}).some(r=>r.kind==='attention')).sort((a,b)=>a.date.localeCompare(b.date)):[];
   const used=new Set(),jobs=[];
-  for(const slot of config.slots) {
+  for(const slot of slotsForDate(date,config)) {
     const candidates=carry.filter(j=>!used.has(j.id)&&j.language===slot.language);
     const previous=candidates.find(j=>j.format===slot.format)||candidates[0];
     if(previous) {

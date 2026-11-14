@@ -6,7 +6,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseEnv,validateSettings} from '../config.mjs';
 import {GeminiClient,redact} from '../gemini.mjs';
-import {localDate,zonedTime,planDay,publicationDecision} from '../schedule.mjs';
+import {localDate,zonedTime,planDay,publicationDecision,slotsForDate} from '../schedule.mjs';
+import {bank,selectVerifiedTopic,contentInventory} from '../verified-content.mjs';
 import {makeBrief,topicFromDraft,generateTopic,validateDraft} from '../content.mjs';
 import {localizedTheme} from '../localize.mjs';
 import {loadProject,createTimeline,captionCues,metadata} from '../model.mjs';
@@ -87,6 +88,41 @@ test('publishing stays disabled until connected and does not flood missed slots'
   assert.equal(publicationDecision({...j,youtube:{}},enabled,new Date('2026-11-14T06:00:00Z')),'missed');
   assert.equal(publicationDecision({...j,youtube:{}},enabled,new Date('2026-11-14T04:00:00Z')),'schedule');
   assert.equal(publicationDecision(j,enabled,new Date('2026-11-14T06:00:00Z')),'reconcile');
+});
+test('alternating languages uses every bilingual story once over eight three-video days',()=>{
+  const rotating={...config,languageRotation:{mode:'alternate-days',startDate:'2026-11-15'}},state={jobs:[]},keys=[];
+  assert.equal(slotsForDate('2026-11-14',rotating),rotating.slots);
+  for(let day=0;day<8;day++) {
+    const date=new Date(Date.UTC(2026,10,15+day)).toISOString().slice(0,10);
+    const jobs=planDay(state,date,rotating);
+    assert.deepEqual(jobs.map(j=>j.language),day%2?['ru','ru','kk']:['kk','kk','ru']);
+    assert.deepEqual(jobs.map(j=>j.publishAt.slice(11,16)),['05:00','10:00','15:00']);
+    for(const job of jobs) {
+      job.topic=selectVerifiedTopic(job,state.jobs.filter(j=>j.topic).map(j=>j.topic));
+      keys.push(job.topic.contentKey);job.status='uploaded';job.youtube={videoId:'simulated-'+keys.length};
+    }
+  }
+  assert.equal(keys.length,24);assert.equal(new Set(keys).size,24);
+  for(const story of bank.stories)for(const language of ['kk','ru'])assert(keys.includes(story.id+':'+language));
+  assert.equal(contentInventory(state.jobs).languages.kk.remaining,0);assert.equal(contentInventory(state.jobs).languages.ru.remaining,0);
+  const ninth=planDay(state,'2026-11-23',rotating)[0];
+  assert.throws(()=>selectVerifiedTopic(ninth,state.jobs.filter(j=>j.topic).map(j=>j.topic)),e=>e.code==='CONTENT_EXHAUSTED');
+});
+test('language rotation preserves planned uploads, retry history and the language of carried work',()=>{
+  const rotating={...config,languageRotation:{mode:'alternate-days',startDate:'2026-11-15'},runtime:{...config.runtime,carryUnfinished:true}};
+  const state={jobs:[]},today=planDay(state,'2026-11-15',rotating);
+  today[0].status='uploaded';today[0].youtube={videoId:'existing'};
+  today[1].status='uploaded';today[1].youtube={videoId:'existing-2'};
+  today[2].status='failed';today[2].retries={generate:{kind:'quota',nextAt:'2026-11-16T08:03:00Z'}};
+  const before=JSON.stringify(today);
+  assert.deepEqual(planDay(state,'2026-11-15',{...rotating,languageRotation:{...rotating.languageRotation,startDate:'2026-11-14'}}),today);
+  assert.equal(JSON.stringify(today),before);
+  const tomorrow=planDay(state,'2026-11-16',rotating),carried=tomorrow.find(j=>j.id===today[2].id);
+  assert.equal(carried.language,'ru');assert.equal(carried.retries.generate.nextAt,'2026-11-16T08:03:00Z');
+  assert.equal(state.jobs.filter(j=>j.id===carried.id).length,1);
+  assert.equal(today[0].youtube.videoId,'existing');assert.equal(today[0].publishAt,'2026-11-15T05:00:00.000Z');
+  assert.throws(()=>validateSettings({...rotating,languageRotation:{mode:'unknown',startDate:'2026-11-15'}}),/Language rotation/);
+  assert.throws(()=>validateSettings({...rotating,languageRotation:{mode:'alternate-days',startDate:'2026-02-30'}}),/valid date/);
 });
 test('both languages fit all three formats and arithmetic is computed rather than generated',()=>{
   for(const language of ['kk','ru'])for(const format of ['tip','material','quiz']) {
