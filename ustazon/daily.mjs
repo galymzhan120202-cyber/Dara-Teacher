@@ -71,7 +71,7 @@ export async function execute(opts,{config,apiKey},{signal}={}) {
         contentInventory:contentInventory(state.jobs),
         requestsToday:state.requests[localDate(new Date(),config.timezone)]||0,requestLimit:config.gemini.maxDailyRequests,
         geminiBudget:budgetReport(config,state,new Date(),await preparedNarrationStatus(config)),
-        jobs:state.jobs.slice(-30).map(j=>({id:j.id,status:j.status,publication:j.publication,videoId:j.youtube?.videoId,
+        jobs:state.jobs.slice(-30).map(j=>({id:j.id,date:j.date,language:j.language,publishAt:j.publishAt,status:j.status,publication:j.publication,videoId:j.youtube?.videoId,
           error:j.error||j.uploadError,nextAttempt:j.retries?.generate?.nextAt||j.retries?.publish?.nextAt,attention:Object.values(j.retries||{}).some(r=>r.kind==='attention')})),
         worker},null,2));return;
     }

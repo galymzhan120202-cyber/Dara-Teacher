@@ -15,7 +15,9 @@ function requireScopes(data) {
 export function youtubeError(message,properties={}){return Object.assign(new Error(message),{name:'YouTubeError',...properties});}
 function retryDelay(value){return value?(Number.isFinite(Number(value))?Number(value)*1000:Math.max(0,Date.parse(value)-Date.now())):0;}
 async function request(url,options={},fetchImpl=fetch) {
-  try {return await fetchImpl(url,{...options,redirect:'error',signal:options.signal?AbortSignal.any([options.signal,AbortSignal.timeout(90000)]):AbortSignal.timeout(90000)});}
+  // YouTube uses HTTP 308 for upload progress. Return it to the uploader without
+  // following redirects; redirect:'error' would reject this valid response.
+  try {return await fetchImpl(url,{...options,redirect:'manual',signal:options.signal?AbortSignal.any([options.signal,AbortSignal.timeout(90000)]):AbortSignal.timeout(90000)});}
   catch {options.signal?.throwIfAborted();throw youtubeError('YouTube connection interrupted. The existing upload session will be checked on retry.',{retryable:true});}
 }
 async function responseJSON(response,label) {

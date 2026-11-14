@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import http from 'node:http';
 import {uploadURL,uploadMetadata,verifyChannel,resumableUpload,checkConnection} from '../youtube.mjs';
 const url='https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&upload_id=test';
 const id='abcdefghijk';
@@ -88,4 +89,28 @@ test('an expired upload is not silently recreated, and changed video bytes canno
   await assert.rejects(resumableUpload(args),/expired/);
   await fs.writeFile(file,'different');
   await assert.rejects(resumableUpload(args),/changed/);
+});
+test('real HTTP 308 upload progress is accepted without following its Location header',async t=>{
+  const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ustazon-upload-http-'));
+  t.after(async()=>{assert.equal(path.dirname(path.resolve(dir)),path.resolve(os.tmpdir()));assert(path.basename(dir).startsWith('ustazon-upload-http-'));await fs.rm(dir,{recursive:true,force:true});});
+  const file=path.join(dir,'video.mp4');await fs.writeFile(file,'video');
+  let puts=0,redirects=0,origin;
+  const server=http.createServer((req,res)=>{
+    if(req.url==='/redirect-target'){redirects++;res.writeHead(500);res.end();return;}
+    assert.equal(req.method,'PUT');puts++;
+    if(req.headers['content-range']==='bytes */5'){
+      res.writeHead(308,{Location:origin+'/redirect-target','Content-Length':'0'});res.end();return;
+    }
+    assert.equal(req.headers['content-range'],'bytes 0-4/5');
+    const chunks=[];req.on('data',chunk=>chunks.push(chunk));req.on('end',()=>{
+      assert.equal(Buffer.concat(chunks).toString(),'video');
+      res.writeHead(201,{'Content-Type':'application/json'});res.end(JSON.stringify({id,status:{privacyStatus:'private'}}));
+    });
+  });
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin='http://127.0.0.1:'+server.address().port;
+  t.after(async()=>{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));});
+  const record={sessionUrl:url};
+  const result=await resumableUpload({file,body:{status:{privacyStatus:'private'}},record,save:async()=>{},token:'test',
+    fetchImpl:(_address,options)=>fetch(origin+'/upload',options)});
+  assert.equal(result,id);assert.equal(puts,2);assert.equal(redirects,0);
 });

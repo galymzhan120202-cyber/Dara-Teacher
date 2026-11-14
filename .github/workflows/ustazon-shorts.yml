@@ -64,6 +64,9 @@ jobs:
       - name: Generate and schedule verified videos
         if: ${{ !inputs.check_only }}
         run: node ustazon/daily.mjs worker --once
+      - name: Report queue and publication receipts
+        if: always() && steps.restore.outcome == 'success'
+        run: node ustazon/daily.mjs status
       - name: Prepare review files
         if: always() && steps.restore.outcome == 'success'
         run: node ustazon/review.mjs
