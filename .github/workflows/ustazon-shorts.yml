@@ -6,6 +6,10 @@ on:
         description: 'First run only: create an empty encrypted runtime history'
         type: boolean
         default: false
+      check_only:
+        description: 'Check Gemini access and restored history without generating or publishing'
+        type: boolean
+        default: false
   schedule:
     - cron: '17 23 * * *'
     - cron: '17 4,9,14 * * *'
@@ -48,7 +52,14 @@ jobs:
           else
             node ustazon/remote-state.mjs restore
           fi
+      - name: Check Gemini access and restored quota
+        if: inputs.check_only
+        run: |
+          node ustazon/daily.mjs probe
+          node ustazon/daily.mjs budget
+          node ustazon/daily.mjs status
       - name: Generate and schedule verified videos
+        if: ${{ !inputs.check_only }}
         run: node ustazon/daily.mjs worker --once
       - name: Prepare review files
         if: always() && steps.restore.outcome == 'success'

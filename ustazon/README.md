@@ -41,6 +41,8 @@ video:daily жергілікті файл жасайды. video:worker тұра�
 
 .github/workflows/ustazon-checks.yml код пен барлық 24 макетті тексереді. .github/workflows/ustazon-shorts.yml генерация мен жариялауды орындайды. Автоматты кесте USTAZON_AUTOMATION_ENABLED=true болғанда ғана қосылады.
 
+Gemini кілті мен шифрланған тарихты тексеру үшін Actions → Ustazon Shorts → Run workflow ішінде check_only=true, initialize=false таңдаңыз. Бұл режим модельдерге қолжетімділікті, сақталған лимит есебін және дайын видеоларды тексереді; жаңа дыбыс не видео жасамайды және YouTube-ке жарияламайды. Тарихты алдын ала көшіру керек. Тексеріс нәтижесіндегі ustazon-review артефактісінен бұрын дайындалған видеоларды алуға болады.
+
 Repository Settings → Secrets and variables → Actions:
 
 | Түрі | Атауы | Мәні |
