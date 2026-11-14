@@ -1,0 +1,26 @@
+{
+  "name": "ustazon-shorts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ustazon bilingual Gemini Shorts generator with daily queue",
+  "scripts": {
+    "start": "node cli.mjs render",
+    "next": "node cli.mjs next",
+    "list": "node cli.mjs list",
+    "test": "node --test test/model.test.mjs test/encode.test.mjs test/automation.test.mjs test/youtube.test.mjs test/reliability.test.mjs test/budget.test.mjs test/quality.test.mjs test/remote-state.test.mjs",
+    "daily": "node daily.mjs generate",
+    "worker": "node supervisor.mjs start",
+    "status": "node daily.mjs status",
+    "stop": "node supervisor.mjs stop",
+    "health": "node daily.mjs health",
+    "budget": "node daily.mjs budget"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "1.1.1",
+    "ffmpeg-static": "5.3.0"
+  }
+}

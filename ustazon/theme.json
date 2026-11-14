@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "brand": "Ustazon",
+  "language": "kk-KZ",
+  "font": { "file": "../fonts/InterVariable.ttf", "family": "UstazonInter" },
+  "colors": {
+    "background": "#f2f9f5",
+    "ink": "#0d2a20",
+    "primary": "#2f8450",
+    "muted": "#527467",
+    "line": "#d6e7dc",
+    "white": "#ffffff",
+    "accent": "#e9c578"
+  },
+  "cardRadius": 36,
+  "music": {
+    "file": "../music/soft_sparks.wav",
+    "volume": 0.16,
+    "attributionFile": "../music/fallback_attribution.json"
+  },
+  "cta": {
+    "label": "КЕЛЕСІ САБАҚҚА ИДЕЯ",
+    "headline": "Пайдалы материалдарды\nбірге табайық.",
+    "body": "Ustazon туралы жаңа видеоларды өткізіп алмаңыз.",
+    "action": "Арнаға жазылыңыз",
+    "destination": ""
+  }
+}

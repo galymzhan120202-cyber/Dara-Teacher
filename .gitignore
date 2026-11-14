@@ -1,0 +1,11 @@
+.env
+.env.local
+.env.*.local
+node_modules/
+ustazon/.state/
+ustazon/output/
+ustazon/review/
+client_secrets.json
+youtube_token.json
+*.log
+.DS_Store

@@ -1,0 +1,5 @@
+Source: user-provided Ustazon server export, 2026-11-13.
+Card 47632: Biology, grade 8, quarter 3; actual PPTX slide renders 1-3 and library card.
+Card 47471: Biology, grade 10, quarter 2; actual DOCX embedded diagram (not a full worksheet page) and library card.
+Original assets are Kazakh. Russian video narration does not imply a Russian downloadable file.
+Website availability and downloadable full QMJ are unconfirmed. No missing geometry/comparison file is advertised.

@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "timezone": "Asia/Qyzylorda",
+  "slots": [
+    {
+      "id": "morning",
+      "time": "10:00",
+      "format": "tip",
+      "language": "kk"
+    },
+    {
+      "id": "afternoon",
+      "time": "15:00",
+      "format": "material",
+      "language": "kk"
+    },
+    {
+      "id": "evening",
+      "time": "20:00",
+      "format": "quiz",
+      "language": "ru"
+    }
+  ],
+  "gemini": {
+    "model": "gemini-3.8-flash",
+    "voiceEnabled": true,
+    "ttsModel": "gemini-3.8-flash-tts",
+    "voice": "Kore",
+    "maxScriptAttempts": 2,
+    "maxDailyRequests": 16,
+    "templateFallback": true,
+    "freeTier": {
+      "mode": "free-only",
+      "confirmed": false,
+      "scriptRequestsPerDay": 6,
+      "speechRequestsPerDay": 10,
+      "minIntervalMs": 61000,
+      "observedLimits": {
+        "source": "User screenshots photo_5458486297862284137_w.jpg and photo_5458486297862284138_w.jpg",
+        "observedAt": "2026-11-14",
+        "projectName": "Default Gemini Project",
+        "tier": "free",
+        "usageDisplay": "Peak usage over the last 28 days; not remaining quota today",
+        "models": {
+          "gemini-3.8-flash": {
+            "rpm": 5,
+            "tpm": 250000,
+            "rpd": 20
+          },
+          "gemini-3.8-flash-tts": {
+            "rpm": 3,
+            "tpm": 10000,
+            "rpd": 10
+          }
+        }
+      }
+    },
+    "preparedCta": true
+  },
+  "video": {
+    "width": 1080,
+    "fps": 30,
+    "captions": true
+  },
+  "youtube": {
+    "enabled": false,
+    "expectedChannelId": "",
+    "tokenFile": ".state/youtube-token.json",
+    "clientFile": "../client_secrets.json"
+  },
+  "maxLatenessMinutes": 30,
+  "runtime": {
+    "pollSeconds": 30,
+    "maxAttemptsPerDay": 6,
+    "retryBaseSeconds": 60,
+    "retryMaxMinutes": 60,
+    "minFreeMB": 512,
+    "cacheDays": 30,
+    "backupDays": 14,
+    "logDays": 14,
+    "logMaxMB": 5,
+    "renderTimeoutMinutes": 10,
+    "carryUnfinished": true
+  },
+  "content": {
+    "mode": "verified",
+    "revision": "2026-11-14-materials-v1"
+  }
+}

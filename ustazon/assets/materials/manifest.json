@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "source": "User-provided server export dated 2026-11-13",
+  "assets": [
+    {
+      "id": "urinary-intro",
+      "file": "urinary-intro.png",
+      "sha256": "0834171afe2f3bfa7155263e68c9f971f0cae7390cbfb8461be4e949f91333f2",
+      "cardId": "47632",
+      "sourceLanguage": "kk",
+      "sourcePath": "slides/card47632_slide1.png",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "urinary-anatomy",
+      "file": "urinary-anatomy.png",
+      "sha256": "a28b5f74b15d414dc3a73c341ed75f6923e6a4fed0fd71647aa19c956bc11c72",
+      "cardId": "47632",
+      "sourceLanguage": "kk",
+      "sourcePath": "slides/card47632_slide2.png",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "urinary-goal",
+      "file": "urinary-goal.png",
+      "sha256": "54de5a32868c9213c15f9979d7e8518f5678e5418b70514c2a780148940de901",
+      "cardId": "47632",
+      "sourceLanguage": "kk",
+      "sourcePath": "slides/card47632_slide3.png",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "diffusion-diagram",
+      "file": "diffusion-diagram.jpg",
+      "sha256": "b2b49265eb7e5dc18d848f6b21f3349c7c21c1f74078f217008caf753caa5fb2",
+      "cardId": "47471",
+      "sourceLanguage": "kk",
+      "sourcePath": "slides/card47471_worksheet_diagram.jpg",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "urinary-card",
+      "file": "urinary-card.png",
+      "sha256": "1c32d78eb8b575613a2bec5d5f2f1ff864855ff465e720487f1b3ce4b6ea635d",
+      "cardId": "47632",
+      "sourceLanguage": "kk",
+      "sourcePath": "screenshots/desktop/06_presentation_card.png",
+      "verifiedAt": "2026-11-14"
+    },
+    {
+      "id": "diffusion-card",
+      "file": "diffusion-card.png",
+      "sha256": "780d8b93cdd147ebf0abb6e7b4f17fb1c94141970707e1c5af4e1c60d9e9bde1",
+      "cardId": "47471",
+      "sourceLanguage": "kk",
+      "sourcePath": "screenshots/desktop/07_worksheet_card.png",
+      "verifiedAt": "2026-11-14"
+    }
+  ]
+}

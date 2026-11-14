@@ -1,0 +1,64 @@
+name: Ustazon Shorts
+on:
+  workflow_dispatch:
+    inputs:
+      initialize:
+        description: 'First run only: create an empty encrypted runtime history'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '17 23 * * *'
+    - cron: '17 4,9,14 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: ustazon-production
+  cancel-in-progress: false
+jobs:
+  produce:
+    if: github.event_name == 'workflow_dispatch' || vars.USTAZON_AUTOMATION_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      USTAZON_STATE_KEY: ${{ secrets.USTAZON_STATE_KEY }}
+      USTAZON_REMOTE_STATE: 'true'
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_FREE_TIER_CONFIRMED: ${{ vars.GEMINI_FREE_TIER_CONFIRMED || 'false' }}
+      USTAZON_YOUTUBE_ENABLED: ${{ vars.USTAZON_PUBLISH_ENABLED || 'false' }}
+      YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID }}
+      YOUTUBE_CLIENT_JSON_B64: ${{ secrets.YOUTUBE_CLIENT_JSON_B64 }}
+      YOUTUBE_TOKEN_JSON_B64: ${{ secrets.YOUTUBE_TOKEN_JSON_B64 }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: ustazon/package-lock.json
+      - run: npm ci --prefix ustazon
+      - name: Restore encrypted history and cached media
+        id: restore
+        env:
+          INITIALIZE_STATE: ${{ inputs.initialize && 'true' || 'false' }}
+        shell: bash
+        run: |
+          if [ "$INITIALIZE_STATE" = "true" ]; then
+            node ustazon/remote-state.mjs restore --initialize
+          else
+            node ustazon/remote-state.mjs restore
+          fi
+      - name: Generate and schedule verified videos
+        run: node ustazon/daily.mjs worker --once
+      - name: Prepare review files
+        if: always() && steps.restore.outcome == 'success'
+        run: node ustazon/review.mjs
+      - name: Save videos for review
+        if: always() && steps.restore.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        with:
+          name: ustazon-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ustazon/review/
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: warn

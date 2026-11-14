@@ -1,0 +1,1952 @@
+{
+  "version": 1,
+  "source": "Verified export: cards 47632 and 47471; classroom suggestions are original editorial text",
+  "topics": [
+    {
+      "id": "urinary-observe-kk",
+      "title": "Биологияда суреттен басталатын бір сұрақ",
+      "description": "Биологияда суреттен басталатын бір сұрақ. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "tip",
+      "storyId": "urinary-observe",
+      "materialId": "47632",
+      "contentKey": "urinary-observe:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide2.png",
+        "slides/card47632_slide3.png",
+        "screenshots/desktop/06_presentation_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Алдымен суретті көрсетіңіз",
+          "body": "Оқушылар таныған мүшелерін атасын.",
+          "narration": "Тақырыпты бірден түсіндірмей, суреттен бастаңыз. Оқушылардан таныған мүшелерін атап, суреттен көрсетуді сұраңыз.",
+          "shortNarration": "Оқушылар таныған мүшелерін атасын.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Презентациядан үзінді",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Атауын дәлелмен байланыстырыңыз",
+          "body": "Қай белгіге сүйенгенін сұраңыз.",
+          "narration": "Оқушы мүшені атаған соң, оны қандай белгісінен танығанын сұраңыз. Жауабын суретпен байланыстырып көрсін.",
+          "shortNarration": "Қай белгіге сүйенгенін сұраңыз.",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Сабаққа бір дайын көрнекілік",
+          "body": "Ustazon: биология, 8-сынып.",
+          "narration": "Көрсетілген сурет Ustazon-ның сегізінші сынып презентациясынан алынған. Оны талқылауды бастауға қолдануға болады.",
+          "shortNarration": "Ustazon: биология, 8-сынып.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "urinary-observe-ru",
+      "title": "Один вопрос к схеме на уроке биологии",
+      "description": "Один вопрос к схеме на уроке биологии. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "tip",
+      "storyId": "urinary-observe",
+      "materialId": "47632",
+      "contentKey": "urinary-observe:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide2.png",
+        "slides/card47632_slide3.png",
+        "screenshots/desktop/06_presentation_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Начните с изображения",
+          "body": "Пусть ученики назовут знакомые органы.",
+          "narration": "Покажите схему до объяснения темы. Попросите учеников назвать знакомые органы и найти их на изображении.",
+          "shortNarration": "Пусть ученики назовут знакомые органы.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Фрагмент презентации",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Попросите обосновать ответ",
+          "body": "По какому признаку узнали орган?",
+          "narration": "После названия задайте ещё один вопрос: по какому признаку вы узнали этот орган? Вернитесь к изображению.",
+          "shortNarration": "По какому признаку узнали орган?",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Наглядный материал к уроку",
+          "body": "Ustazon: биология, восьмой класс.",
+          "narration": "На экране фрагмент презентации из материалов Ustazon для восьмого класса. Исходный материал на казахском языке.",
+          "shortNarration": "Ustazon: биология, восьмой класс.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "urinary-walkthrough-kk",
+      "title": "8-сынып биологиясына арналған презентациядан үш үзінді",
+      "description": "8-сынып биологиясына арналған презентациядан үш үзінді. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "material",
+      "storyId": "urinary-walkthrough",
+      "materialId": "47632",
+      "contentKey": "urinary-walkthrough:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "screenshots/desktop/06_presentation_card.png",
+        "slides/card47632_slide1.png",
+        "slides/card47632_slide3.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Бір тақырыпқа үш тірек",
+          "body": "Зәр шығару жүйесі • 8-сынып.",
+          "narration": "Сегізінші сыныптағы зәр шығару жүйесі тақырыбына дайындалып жүрсіз бе? Ustazon материалынан үш тірекке назар аударайық.",
+          "shortNarration": "Зәр шығару жүйесі • 8-сынып.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "poster",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Әуелі бастапқы сұрақ",
+          "body": "Слайдта миға шабуыл сұрақтары берілген.",
+          "narration": "Алғашқы слайдта миға шабуыл сұрақтары берілген. Бір сұрақты таңдап, оқушылардың бастапқы ойларын тыңдап көріңіз.",
+          "shortNarration": "Слайдта миға шабуыл сұрақтары берілген.",
+          "visual": "asset",
+          "assetId": "urinary-intro",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.18,
+            0.31,
+            0.73,
+            0.44
+          ],
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Сұрақты мақсатпен ұштастырыңыз",
+          "body": "Мүшелердің құрылысы мен қызметін сипаттау.",
+          "narration": "Келесі үзіндіде мүшелердің құрылысы мен қызметін сипаттау мақсаты көрсетілген. Талқылаудан кейін осы мақсатқа қайта оралыңыз.",
+          "shortNarration": "Мүшелердің құрылысы мен қызметін сипаттау.",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "urinary-walkthrough-ru",
+      "title": "Три фрагмента презентации по биологии для восьмого класса",
+      "description": "Три фрагмента презентации по биологии для восьмого класса. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "material",
+      "storyId": "urinary-walkthrough",
+      "materialId": "47632",
+      "contentKey": "urinary-walkthrough:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "screenshots/desktop/06_presentation_card.png",
+        "slides/card47632_slide1.png",
+        "slides/card47632_slide3.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Три опоры для одной темы",
+          "body": "Мочевыделительная система • восьмой класс.",
+          "narration": "Готовите урок о мочевыделительной системе? Посмотрим три фрагмента материала Ustazon для восьмого класса.",
+          "shortNarration": "Мочевыделительная система • восьмой класс.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "poster",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Начните с вопроса",
+          "body": "В слайде есть вопросы для обсуждения.",
+          "narration": "Первый слайд предлагает вопросы для мозгового штурма. Выберите один и сначала выслушайте предположения учеников.",
+          "shortNarration": "В слайде есть вопросы для обсуждения.",
+          "visual": "asset",
+          "assetId": "urinary-intro",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.18,
+            0.31,
+            0.73,
+            0.44
+          ],
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Вернитесь к цели урока",
+          "body": "Описать строение и функции органов.",
+          "narration": "В другом фрагменте указана цель: описывать строение и функции органов. Свяжите с ней обсуждение в конце урока.",
+          "shortNarration": "Описать строение и функции органов.",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "urinary-four-organs-kk",
+      "title": "Суреттен төрт мүшені табуға арналған тапсырма",
+      "description": "Суреттен төрт мүшені табуға арналған тапсырма. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "quiz",
+      "storyId": "urinary-four-organs",
+      "materialId": "47632",
+      "contentKey": "urinary-four-organs:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide2.png",
+        "slides/card47632_slide3.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Суреттен таба аласыз ба?",
+          "body": "Мұғалімге арналған шағын тапсырма.",
+          "narration": "Сыныпқа мына суретті көрсетіңіз. Тапсырма қарапайым: тақырыпта аталған төрт мүшені суреттен тауып көрсету керек.",
+          "shortNarration": "Мұғалімге арналған шағын тапсырма.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Презентациядан үзінді",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Төрт мүшені атаңыз",
+          "body": "Оқушыларға ойлануға уақыт беріңіз.",
+          "narration": "Оқушылардан мүшелердің атауын жазып алуды сұраңыз. Содан кейін әр атауды суреттегі орнымен сәйкестендірсін.",
+          "shortNarration": "Оқушыларға ойлануға уақыт беріңіз.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Презентациядан үзінді",
+          "layout": "focus",
+          "pauseSeconds": 3.5
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Атауларын салыстырайық",
+          "body": "Бүйрек, несепағар, қуық, несеп жолы.",
+          "narration": "Тақырыпта бүйрек, несепағар, қуық және несеп жолы аталған. Оқушылар жауаптарын осы атаулармен салыстырсын.",
+          "shortNarration": "Бүйрек, несепағар, қуық, несеп жолы.",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "urinary-four-organs-ru",
+      "title": "Задание: найдите четыре органа на схеме",
+      "description": "Задание: найдите четыре органа на схеме. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "quiz",
+      "storyId": "urinary-four-organs",
+      "materialId": "47632",
+      "contentKey": "urinary-four-organs:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide2.png",
+        "slides/card47632_slide3.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Найдёте органы на схеме?",
+          "body": "Короткое задание для вашего урока.",
+          "narration": "Предложите классу рассмотреть изображение. Нужно найти четыре органа, перечисленные в теме этой презентации.",
+          "shortNarration": "Короткое задание для вашего урока.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Фрагмент презентации",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Назовите четыре органа",
+          "body": "Дайте ученикам время подумать.",
+          "narration": "Попросите учеников записать названия, а затем показать каждый орган на схеме. Не раскрывайте ответ сразу.",
+          "shortNarration": "Дайте ученикам время подумать.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Фрагмент презентации",
+          "layout": "focus",
+          "pauseSeconds": 3.5
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Сверим названия",
+          "body": "Почки, мочеточники, пузырь и мочеиспускательный канал.",
+          "narration": "В теме перечислены почки, мочеточники, мочевой пузырь и мочеиспускательный канал. Предложите классу сверить свои ответы.",
+          "shortNarration": "Почки, мочеточники, пузырь и мочеиспускательный канал.",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "urinary-goal-kk",
+      "title": "Оқу мақсатын оқушы әрекетіне айналдыру",
+      "description": "Оқу мақсатын оқушы әрекетіне айналдыру. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "tip",
+      "storyId": "urinary-goal",
+      "materialId": "47632",
+      "contentKey": "urinary-goal:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide3.png",
+        "slides/card47632_slide2.png",
+        "screenshots/desktop/06_presentation_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Мақсатты әрекетке айналдырыңыз",
+          "body": "Оқушы не істей алуы керек?",
+          "narration": "Сабақ мақсатын оқып қана қоймай, оны оқушы орындайтын әрекетке айналдырып көріңіз. Мына слайдты мысалға алайық.",
+          "shortNarration": "Оқушы не істей алуы керек?",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Көрсет, ата, сипатта",
+          "body": "Бір мүшеден бастауды ұсыныңыз.",
+          "narration": "Суреттен бір мүшені көрсетуді, атауын айтуды және құрылысын сипаттауды ұсыныңыз. Осы әрекеттерді кезекпен орындатыңыз.",
+          "shortNarration": "Бір мүшеден бастауды ұсыныңыз.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Презентациядан үзінді",
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Сабақ соңында қайта оралыңыз",
+          "body": "Алғашқы және соңғы жауапты салыстырыңыз.",
+          "narration": "Сабақ соңында сол суретті қайта көрсетіңіз. Оқушының бастапқы және соңғы түсіндірмесін салыстырып, ілгерілеуін талқылаңыз.",
+          "shortNarration": "Алғашқы және соңғы жауапты салыстырыңыз.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "urinary-goal-ru",
+      "title": "Как превратить цель урока в действие ученика",
+      "description": "Как превратить цель урока в действие ученика. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "tip",
+      "storyId": "urinary-goal",
+      "materialId": "47632",
+      "contentKey": "urinary-goal:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide3.png",
+        "slides/card47632_slide2.png",
+        "screenshots/desktop/06_presentation_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Превратите цель в действие",
+          "body": "Что именно должен сделать ученик?",
+          "narration": "Не ограничивайтесь чтением цели урока. Переведите её в понятное действие ученика на примере этого слайда.",
+          "shortNarration": "Что именно должен сделать ученик?",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Покажи, назови, опиши",
+          "body": "Начните с одного органа.",
+          "narration": "Предложите выбрать один орган, показать его на схеме и описать строение. Выполните эти действия последовательно.",
+          "shortNarration": "Начните с одного органа.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Фрагмент презентации",
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Вернитесь к схеме в конце",
+          "body": "Сравните объяснения до и после урока.",
+          "narration": "В конце урока покажите ту же схему. Сравните первоначальное объяснение ученика с новым и обсудите изменения.",
+          "shortNarration": "Сравните объяснения до и после урока.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "urinary-opening-kk",
+      "title": "Сабақ басына арналған миға шабуыл слайды",
+      "description": "Сабақ басына арналған миға шабуыл слайды. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "material",
+      "storyId": "urinary-opening",
+      "materialId": "47632",
+      "contentKey": "urinary-opening:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide1.png",
+        "slides/card47632_slide2.png",
+        "screenshots/desktop/06_presentation_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Сабақты қай сұрақтан бастайсыз?",
+          "body": "Алдымен оқушылардың ойын тыңдаңыз.",
+          "narration": "Жаңа тақырып алдында оқушылардың не білетінін байқап көріңіз. Бұл слайдта талқылауға арналған екі сұрақ бар.",
+          "shortNarration": "Алдымен оқушылардың ойын тыңдаңыз.",
+          "visual": "asset",
+          "assetId": "urinary-intro",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.18,
+            0.31,
+            0.73,
+            0.44
+          ],
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Бір сұрақты таңдап алыңыз",
+          "body": "Зәр шығару жүйесі не үшін қажет?",
+          "narration": "Зәр шығару жүйесі не үшін қажет деген сұрақты таңдауға болады. Алдымен жеке ойлануға уақыт беріңіз.",
+          "shortNarration": "Зәр шығару жүйесі не үшін қажет?",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Презентациядан үзінді",
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Содан кейін жұпта талқылаңыз",
+          "body": "Ustazon презентациясынан сабаққа идея.",
+          "narration": "Оқушылар жауаптарын жұпта салыстырсын. Бұл сабақ бастау тәсілін Ustazon презентациясының көрсетілген үзіндісімен қолдануға болады.",
+          "shortNarration": "Ustazon презентациясынан сабаққа идея.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "urinary-opening-ru",
+      "title": "Слайд для обсуждения в начале урока биологии",
+      "description": "Слайд для обсуждения в начале урока биологии. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "material",
+      "storyId": "urinary-opening",
+      "materialId": "47632",
+      "contentKey": "urinary-opening:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide1.png",
+        "slides/card47632_slide2.png",
+        "screenshots/desktop/06_presentation_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "С какого вопроса начнёте?",
+          "body": "Сначала выслушайте идеи учеников.",
+          "narration": "Перед новой темой выясните, что ученики уже знают. В этом слайде есть два вопроса для обсуждения.",
+          "shortNarration": "Сначала выслушайте идеи учеников.",
+          "visual": "asset",
+          "assetId": "urinary-intro",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.18,
+            0.31,
+            0.73,
+            0.44
+          ],
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Выберите один вопрос",
+          "body": "Зачем нужна мочевыделительная система?",
+          "narration": "Можно начать с вопроса: зачем нужна мочевыделительная система? Сначала дайте каждому ученику время подумать самостоятельно.",
+          "shortNarration": "Зачем нужна мочевыделительная система?",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Фрагмент презентации",
+          "layout": "focus"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Затем обсудите в парах",
+          "body": "Идея с фрагментом презентации Ustazon.",
+          "narration": "Предложите сравнить ответы в парах. Для такого начала урока можно использовать показанный фрагмент презентации Ustazon.",
+          "shortNarration": "Идея с фрагментом презентации Ustazon.",
+          "visual": "asset",
+          "assetId": "urinary-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "urinary-check-goal-kk",
+      "title": "Мүшені атау жеткілікті ме? Оқу мақсатын тексеру",
+      "description": "Мүшені атау жеткілікті ме? Оқу мақсатын тексеру. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "quiz",
+      "storyId": "urinary-check-goal",
+      "materialId": "47632",
+      "contentKey": "urinary-check-goal:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide2.png",
+        "slides/card47632_slide3.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Атауын білу жеткілікті ме?",
+          "body": "Сабақ мақсатын бірге тексерейік.",
+          "narration": "Оқушы суреттегі мүшелерді дұрыс атады. Осы жауап сабақ мақсатына жеткенін толық көрсете ме? Бірге ойланайық.",
+          "shortNarration": "Сабақ мақсатын бірге тексерейік.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Презентациядан үзінді",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Мақсаттағы әрекетті іздеңіз",
+          "body": "Слайдта оқушыдан не талап етіледі?",
+          "narration": "Оқу мақсаты жазылған үзіндіге қараңыз. Оқушы тек атауы керек пе, әлде құрылыс пен қызметті де сипаттауы керек пе?",
+          "shortNarration": "Слайдта оқушыдан не талап етіледі?",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "focus",
+          "pauseSeconds": 3.5
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Келесі сұрақты нақтылаңыз",
+          "body": "Құрылысын және қызметін сипаттауды сұраңыз.",
+          "narration": "Мақсатта құрылыс пен қызметті сипаттау берілген. Сондықтан дұрыс атаудан кейін оқушының түсіндіруін де тыңдаңыз.",
+          "shortNarration": "Құрылысын және қызметін сипаттауды сұраңыз.",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Презентациядан үзінді",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "urinary-check-goal-ru",
+      "title": "Достаточно назвать орган? Проверяем цель урока",
+      "description": "Достаточно назвать орган? Проверяем цель урока. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "quiz",
+      "storyId": "urinary-check-goal",
+      "materialId": "47632",
+      "contentKey": "urinary-check-goal:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47632",
+        "slides/card47632_slide2.png",
+        "slides/card47632_slide3.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Достаточно назвать орган?",
+          "body": "Проверим ответ по цели урока.",
+          "narration": "Ученик правильно назвал органы на рисунке. Достаточно ли этого для указанной цели урока? Предложите классу подумать.",
+          "shortNarration": "Проверим ответ по цели урока.",
+          "visual": "asset",
+          "assetId": "urinary-anatomy",
+          "assetCaption": "Фрагмент презентации",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Найдите действие в цели",
+          "body": "Что требуется от ученика?",
+          "narration": "Посмотрите на фрагмент с целью. Требуется только назвать органы или также описать их строение и функции?",
+          "shortNarration": "Что требуется от ученика?",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "focus",
+          "pauseSeconds": 3.5
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Уточните следующий вопрос",
+          "body": "Попросите описать строение и функции.",
+          "narration": "В цели указано описание строения и функций. После правильного названия выслушайте и объяснение ученика.",
+          "shortNarration": "Попросите описать строение и функции.",
+          "visual": "asset",
+          "assetId": "urinary-goal",
+          "assetCaption": "Фрагмент презентации",
+          "crop": [
+            0.17,
+            0.34,
+            0.77,
+            0.35
+          ],
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-pair-kk",
+      "title": "Диффузияны жұпта талқылауға арналған бір тәсіл",
+      "description": "Диффузияны жұпта талқылауға арналған бір тәсіл. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "tip",
+      "storyId": "diffusion-pair",
+      "materialId": "47471",
+      "contentKey": "diffusion-pair:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg",
+        "screenshots/desktop/07_worksheet_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Жұптық жұмысты қалай бастайсыз?",
+          "body": "Бір суретке екі бақылаушы.",
+          "narration": "Диффузия тақырыбын жұпта талқылауға мына үзіндіні қолданып көріңіз. Алдымен әр оқушы суретті жеке бақыласын.",
+          "shortNarration": "Бір суретке екі бақылаушы.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Құжаттағы диаграммадан үзінді",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Әр оқушыға бір міндет",
+          "body": "Бірі белгілерді, бірі бағыттарды қарайды.",
+          "narration": "Жұптағы бір оқушы сурет белгілерін атасын. Екіншісі бағыттауыштарды бақылап, екеуі байқағандарын бір-біріне түсіндірсін.",
+          "shortNarration": "Бірі белгілерді, бірі бағыттарды қарайды.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Диаграмманың А бөлігі",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Жұмыс парағымен байланыстырыңыз",
+          "body": "Биология • 10-сынып • жұптық жұмыс.",
+          "narration": "Бұл үзінді Ustazon-ның оныншы сынып жұмыс парағынан алынған. Құжатта жұптық жұмыс тапсырмасы бар.",
+          "shortNarration": "Биология • 10-сынып • жұптық жұмыс.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-pair-ru",
+      "title": "Как обсудить схему диффузии в парах",
+      "description": "Как обсудить схему диффузии в парах. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "tip",
+      "storyId": "diffusion-pair",
+      "materialId": "47471",
+      "contentKey": "diffusion-pair:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg",
+        "screenshots/desktop/07_worksheet_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Как начать работу в парах?",
+          "body": "Два наблюдателя, одна схема.",
+          "narration": "Попробуйте обсудить диффузию в парах с этим фрагментом. Сначала каждый ученик самостоятельно рассматривает изображение.",
+          "shortNarration": "Два наблюдателя, одна схема.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Фрагмент диаграммы из документа",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Дайте разные роли",
+          "body": "Один читает подписи, другой следит за стрелками.",
+          "narration": "Один ученик называет обозначения, другой следит за направлениями стрелок. Затем они объясняют друг другу свои наблюдения.",
+          "shortNarration": "Один читает подписи, другой следит за стрелками.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Часть А исходной диаграммы",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Свяжите обсуждение с заданием",
+          "body": "Биология • десятый класс • работа в парах.",
+          "narration": "Фрагмент взят из рабочего листа Ustazon для десятого класса. В исходном документе есть задание для парной работы.",
+          "shortNarration": "Биология • десятый класс • работа в парах.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-excerpt-kk",
+      "title": "Жеңілдетілген диффузия: жұмыс парағынан нақты үзінді",
+      "description": "Жеңілдетілген диффузия: жұмыс парағынан нақты үзінді. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "material",
+      "storyId": "diffusion-excerpt",
+      "materialId": "47471",
+      "contentKey": "diffusion-excerpt:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "screenshots/desktop/07_worksheet_card.png",
+        "slides/card47471_worksheet_diagram.jpg"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Жұмыс парағында не бар?",
+          "body": "Жеңілдетілген диффузия • 10-сынып.",
+          "narration": "Жеңілдетілген диффузия тақырыбына материал іздеп жүрсіз бе? Ustazon-ның жұмыс парағының нақты үзіндісін қарайық.",
+          "shortNarration": "Жеңілдетілген диффузия • 10-сынып.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "poster",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Заттардың тасымалдануы",
+          "body": "Құжаттағы диаграммадан үзінді.",
+          "narration": "Құжатта заттардың тасымалдануы туралы мына диаграмма бар. Оқушылармен сурет белгілері мен бағыттауыштарды талқылауға болады.",
+          "shortNarration": "Құжаттағы диаграммадан үзінді.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Диаграмманың А бөлігі",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Келесі әрекет — салыстыру",
+          "body": "Жұптық талқылауға бір сұрақ дайындаңыз.",
+          "narration": "Диаграмманы көрсеткен соң, жұптарға бір салыстыру сұрағын беріңіз. Олар жауабын суреттегі нақты белгімен дәлелдесін.",
+          "shortNarration": "Жұптық талқылауға бір сұрақ дайындаңыз.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Диаграмманың Ә бөлігі",
+          "layout": "takeaway",
+          "crop": [
+            0.5,
+            0.02,
+            0.5,
+            0.88
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-excerpt-ru",
+      "title": "Обзор фрагмента рабочего листа по облегчённой диффузии",
+      "description": "Обзор фрагмента рабочего листа по облегчённой диффузии. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "material",
+      "storyId": "diffusion-excerpt",
+      "materialId": "47471",
+      "contentKey": "diffusion-excerpt:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "screenshots/desktop/07_worksheet_card.png",
+        "slides/card47471_worksheet_diagram.jpg"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Что внутри рабочего листа?",
+          "body": "Облегчённая диффузия • десятый класс.",
+          "narration": "Ищете материал к теме облегчённой диффузии? Рассмотрим настоящий фрагмент рабочего листа из материалов Ustazon.",
+          "shortNarration": "Облегчённая диффузия • десятый класс.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "poster",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Перенос веществ на схеме",
+          "body": "Фрагмент изображения из документа.",
+          "narration": "В документе есть эта схема переноса веществ. Предложите ученикам рассмотреть подписи и направления стрелок.",
+          "shortNarration": "Фрагмент изображения из документа.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Часть А исходной диаграммы",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Следующий шаг — сравнение",
+          "body": "Подготовьте один вопрос для обсуждения.",
+          "narration": "После просмотра задайте парам один вопрос на сравнение. Пусть ученики подтвердят ответ конкретной деталью рисунка.",
+          "shortNarration": "Подготовьте один вопрос для обсуждения.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Часть Ә исходной диаграммы",
+          "layout": "takeaway",
+          "crop": [
+            0.5,
+            0.02,
+            0.5,
+            0.88
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-arrows-kk",
+      "title": "Диаграммадағы бағыттауыштарды салыстырып көріңіз",
+      "description": "Диаграммадағы бағыттауыштарды салыстырып көріңіз. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "quiz",
+      "storyId": "diffusion-arrows",
+      "materialId": "47471",
+      "contentKey": "diffusion-arrows:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Екі бөліктің айырмасы неде?",
+          "body": "Жауапты суреттен іздеңіз.",
+          "narration": "Мұғалімге арналған шағын бақылау тапсырмасы: диаграмманың екі бөлігін салыстырып, бағыттауыштардың айырмасын табыңыз.",
+          "shortNarration": "Жауапты суреттен іздеңіз.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Құжаттағы диаграммадан үзінді",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Әр бағыттауышты қадағалаңыз",
+          "body": "Бағыттары бірдей ме?",
+          "narration": "Алдымен бір бағыттауышты таңдап, екінші бөліктегі сәйкес бағыттауышпен салыстырыңыз. Оқушыларға жауапты ойлануға уақыт беріңіз.",
+          "shortNarration": "Бағыттары бірдей ме?",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Құжаттағы диаграммадан үзінді",
+          "layout": "focus",
+          "pauseSeconds": 3.5
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Бақылауды сөзбен түсіндіріңіз",
+          "body": "Сәйкес бағыттауыштардың бағыты өзгереді.",
+          "narration": "Екі бөліктегі сәйкес бағыттауыштардың бағыты өзгеше. Оқушылардан қай белгілерді салыстырғанын суреттен көрсетуді сұраңыз.",
+          "shortNarration": "Сәйкес бағыттауыштардың бағыты өзгереді.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Құжаттағы диаграммадан үзінді",
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-arrows-ru",
+      "title": "Сравните направления стрелок на диаграмме",
+      "description": "Сравните направления стрелок на диаграмме. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "quiz",
+      "storyId": "diffusion-arrows",
+      "materialId": "47471",
+      "contentKey": "diffusion-arrows:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Чем отличаются две части?",
+          "body": "Ищите ответ на изображении.",
+          "narration": "Короткое задание на наблюдение для вашего урока: сравните две части диаграммы и найдите различие в стрелках.",
+          "shortNarration": "Ищите ответ на изображении.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Фрагмент диаграммы из документа",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Проследите каждую стрелку",
+          "body": "Совпадают ли направления?",
+          "narration": "Выберите одну стрелку и сравните её с соответствующей стрелкой во второй части. Дайте ученикам время подумать.",
+          "shortNarration": "Совпадают ли направления?",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Фрагмент диаграммы из документа",
+          "layout": "focus",
+          "pauseSeconds": 3.5
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Объясните наблюдение словами",
+          "body": "Направления соответствующих стрелок различаются.",
+          "narration": "В двух частях направления соответствующих стрелок различаются. Попросите учеников показать, какие элементы они сравнивали.",
+          "shortNarration": "Направления соответствующих стрелок различаются.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Фрагмент диаграммы из документа",
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-evidence-kk",
+      "title": "Жауапқа суреттен дәлел сұраңыз",
+      "description": "Жауапқа суреттен дәлел сұраңыз. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "tip",
+      "storyId": "diffusion-evidence",
+      "materialId": "47471",
+      "contentKey": "diffusion-evidence:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg",
+        "screenshots/desktop/07_worksheet_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Жауап бар. Дәлелі қайда?",
+          "body": "Оқушы суреттегі белгіге сүйенсін.",
+          "narration": "Оқушы диаграмма туралы жауап берді ме? Енді осы ойға суреттің қай белгісі негіз болғанын сұраңыз.",
+          "shortNarration": "Оқушы суреттегі белгіге сүйенсін.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Құжаттағы диаграммадан үзінді",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Бір белгі — бір түсіндірме",
+          "body": "Белгіні көрсетіп, мағынасын түсіндірсін.",
+          "narration": "Бір оқушы суреттегі белгіні көрсетсін, екіншісі оның мағынасын түсіндіріп көрсін. Қажет жерде оқулықпен салыстырыңыз.",
+          "shortNarration": "Белгіні көрсетіп, мағынасын түсіндірсін.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Диаграмманың А бөлігі",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Тапсырмаға дейін қолданыңыз",
+          "body": "Жұптық жұмысқа дайындық ретінде.",
+          "narration": "Бұл талқылауды жұмыс парағын орындауға дайындық ретінде өткізуге болады. Сурет Ustazon-ның құжаттан алынған.",
+          "shortNarration": "Жұптық жұмысқа дайындық ретінде.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-evidence-ru",
+      "title": "Попросите подтвердить ответ деталью рисунка",
+      "description": "Попросите подтвердить ответ деталью рисунка. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "tip",
+      "storyId": "diffusion-evidence",
+      "materialId": "47471",
+      "contentKey": "diffusion-evidence:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg",
+        "screenshots/desktop/07_worksheet_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Ответ есть. А подтверждение?",
+          "body": "Пусть ученик опирается на деталь рисунка.",
+          "narration": "Ученик объяснил диаграмму? Теперь спросите, какая именно деталь изображения помогла ему сделать такой вывод.",
+          "shortNarration": "Пусть ученик опирается на деталь рисунка.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Фрагмент диаграммы из документа",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Одна деталь — одно объяснение",
+          "body": "Покажите обозначение и объясните его смысл.",
+          "narration": "Один ученик показывает обозначение, другой пробует объяснить его смысл. При необходимости сравните объяснение с учебником.",
+          "shortNarration": "Покажите обозначение и объясните его смысл.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Часть А исходной диаграммы",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Используйте перед заданием",
+          "body": "Подготовка к парной работе.",
+          "narration": "Такое обсуждение можно провести перед выполнением рабочего листа. Рисунок взят из документа Ustazon.",
+          "shortNarration": "Подготовка к парной работе.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-table-kk",
+      "title": "Жұмыс парағындағы кестеге қалай дайындалуға болады",
+      "description": "Жұмыс парағындағы кестеге қалай дайындалуға болады. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "material",
+      "storyId": "diffusion-table",
+      "materialId": "47471",
+      "contentKey": "diffusion-table:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "screenshots/desktop/07_worksheet_card.png",
+        "slides/card47471_worksheet_diagram.jpg"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Кестені бірден толтырмаңыз",
+          "body": "Әуелі тапсырма шартын оқыңыз.",
+          "narration": "Бұл жұмыс парағында суреттерді пайдаланып кесте толтыру ұсынылған. Бастамас бұрын оқушылармен тапсырма шартын бірге оқыңыз.",
+          "shortNarration": "Әуелі тапсырма шартын оқыңыз.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "poster",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Көрнекілікті алдын ала қараңыз",
+          "body": "Құжат ішіндегі бір диаграмма.",
+          "narration": "Экранда құжат ішіндегі диаграммалардың бір үзіндісі көрсетілген. Оны бақылап, кестеге қандай мәлімет керегін талқылаңыз.",
+          "shortNarration": "Құжат ішіндегі бір диаграмма.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Диаграмманың А бөлігі",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Оқулық суреттерін де дайындаңыз",
+          "body": "Тапсырмада 94–97-суреттер аталған.",
+          "narration": "Тапсырмада оқулықтағы тоқсан төрттен тоқсан жетіге дейінгі суреттер аталған. Сол суреттерді сабаққа алдын ала дайындаңыз.",
+          "shortNarration": "Тапсырмада 94–97-суреттер аталған.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-table-ru",
+      "title": "Как подготовиться к заполнению таблицы в рабочем листе",
+      "description": "Как подготовиться к заполнению таблицы в рабочем листе. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "material",
+      "storyId": "diffusion-table",
+      "materialId": "47471",
+      "contentKey": "diffusion-table:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "screenshots/desktop/07_worksheet_card.png",
+        "slides/card47471_worksheet_diagram.jpg"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Не спешите заполнять таблицу",
+          "body": "Сначала прочитайте условие вместе.",
+          "narration": "В рабочем листе предлагается заполнить таблицу по рисункам. Перед началом прочитайте условие задания вместе с учениками.",
+          "shortNarration": "Сначала прочитайте условие вместе.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "poster",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Рассмотрите наглядный материал",
+          "body": "Один фрагмент из документа.",
+          "narration": "На экране один фрагмент диаграммы из документа. Обсудите, какие сведения ученикам нужно будет внести в таблицу.",
+          "shortNarration": "Один фрагмент из документа.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Часть А исходной диаграммы",
+          "layout": "focus",
+          "crop": [
+            0,
+            0.02,
+            0.51,
+            0.88
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Подготовьте рисунки учебника",
+          "body": "В условии указаны рисунки 94–97.",
+          "narration": "В условии указаны рисунки учебника с девяносто четвёртого по девяносто седьмой. Подготовьте их перед уроком.",
+          "shortNarration": "В условии указаны рисунки 94–97.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "takeaway",
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-read-task-kk",
+      "title": "Бір сурет тапсырмаға жеткілікті ме?",
+      "description": "Бір сурет тапсырмаға жеткілікті ме?. Ustazon материалынан үзінді және мұғалімге арналған қолдану идеясы.",
+      "language": "kk",
+      "format": "quiz",
+      "storyId": "diffusion-read-task",
+      "materialId": "47471",
+      "contentKey": "diffusion-read-task:kk",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "мұғалім",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg",
+        "screenshots/desktop/07_worksheet_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "САБАҚҚА ИДЕЯ",
+          "headline": "Бір сурет жеткілікті ме?",
+          "body": "Тапсырма шартын тексеруге бір сұрақ.",
+          "narration": "Оқушы тек экрандағы суретке қарап кесте толтырғысы келеді. Осы жұмыс парағындағы тапсырма үшін бұл жеткілікті ме?",
+          "shortNarration": "Тапсырма шартын тексеруге бір сұрақ.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Құжаттағы диаграммадан үзінді",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "НАҚТЫ ҮЗІНДІ",
+          "headline": "Қай дереккөздер аталған?",
+          "body": "Тапсырма мәтінін қайта оқыңыз.",
+          "narration": "Шартта қандай суреттерге сүйену керегі көрсетілгенін тексеріңіз. Жауапты болжаудан бұрын тапсырма мәтініне қайта оралыңыз.",
+          "shortNarration": "Тапсырма мәтінін қайта оқыңыз.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Каталог карточкасынан үзінді",
+          "layout": "focus",
+          "pauseSeconds": 3.5,
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "СЫНЫПТА ҚОЛДАНУ",
+          "headline": "Шартқа сүйеніп жауап беріңіз",
+          "body": "Оқулықтағы 94–97-суреттер қажет.",
+          "narration": "Шартта оқулықтағы тоқсан төрттен тоқсан жетіге дейінгі суреттер аталған. Демек, жұмыста сол суреттерге де сүйену керек.",
+          "shortNarration": "Оқулықтағы 94–97-суреттер қажет.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Құжаттағы диаграммадан үзінді",
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар."
+        }
+      ]
+    },
+    {
+      "id": "diffusion-read-task-ru",
+      "title": "Достаточно ли одного рисунка для задания?",
+      "description": "Достаточно ли одного рисунка для задания?. Фрагмент материала Ustazon и идея для учителя. Исходный документ на казахском языке.",
+      "language": "ru",
+      "format": "quiz",
+      "storyId": "diffusion-read-task",
+      "materialId": "47471",
+      "contentKey": "diffusion-read-task:ru",
+      "evidenceRevision": "e66564cdf4b2bef1ad8e4cb12d3198f2356171998ba29d8ecd845f798f3c8ec3",
+      "tags": [
+        "Ustazon",
+        "учитель",
+        "биология",
+        "shorts"
+      ],
+      "sourceRefs": [
+        "Ustazon export 2026-11-13: card 47471",
+        "slides/card47471_worksheet_diagram.jpg",
+        "screenshots/desktop/07_worksheet_card.png"
+      ],
+      "scenes": [
+        {
+          "kind": "hook",
+          "duration": 5,
+          "label": "ИДЕЯ ДЛЯ УРОКА",
+          "headline": "Достаточно одного рисунка?",
+          "body": "Вопрос на внимательное чтение задания.",
+          "narration": "Ученик хочет заполнить таблицу только по изображению на экране. Достаточно ли этого для задания в рабочем листе?",
+          "shortNarration": "Вопрос на внимательное чтение задания.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Фрагмент диаграммы из документа",
+          "layout": "poster"
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ФРАГМЕНТ МАТЕРИАЛА",
+          "headline": "Какие источники указаны?",
+          "body": "Вернитесь к условию задания.",
+          "narration": "Проверьте, какие рисунки названы в условии. Прежде чем отвечать по памяти, предложите ученикам перечитать текст задания.",
+          "shortNarration": "Вернитесь к условию задания.",
+          "visual": "asset",
+          "assetId": "diffusion-card",
+          "assetCaption": "Фрагмент карточки каталога",
+          "layout": "focus",
+          "pauseSeconds": 3.5,
+          "crop": [
+            0,
+            0.46,
+            1,
+            0.54
+          ]
+        },
+        {
+          "kind": "feature",
+          "duration": 5,
+          "label": "ПРИМЕНЯЕМ В КЛАССЕ",
+          "headline": "Ответ найдётся в условии",
+          "body": "Нужны рисунки учебника 94–97.",
+          "narration": "В условии названы рисунки учебника с девяносто четвёртого по девяносто седьмой. Поэтому нужно обратиться и к ним.",
+          "shortNarration": "Нужны рисунки учебника 94–97.",
+          "visual": "asset",
+          "assetId": "diffusion-diagram",
+          "assetCaption": "Фрагмент диаграммы из документа",
+          "layout": "takeaway"
+        },
+        {
+          "kind": "cta",
+          "duration": 5,
+          "visual": "cta",
+          "narration": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков."
+        }
+      ]
+    }
+  ]
+}

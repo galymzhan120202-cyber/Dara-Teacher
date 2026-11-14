@@ -1,0 +1,23 @@
+[Unit]
+Description=Ustazon daily Shorts worker
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=exec
+# Change these to the account and directory that own THIS bot.
+User=ustazonbot
+WorkingDirectory=/opt/ustazon_bot
+ExecStart=/usr/bin/node /opt/ustazon_bot/ustazon/supervisor.mjs start
+Restart=on-failure
+RestartSec=15
+TimeoutStopSec=30
+KillMode=control-group
+UMask=0077
+Environment=NODE_ENV=production
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
