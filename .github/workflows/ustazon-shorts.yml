@@ -7,7 +7,7 @@ on:
         type: boolean
         default: false
       check_only:
-        description: 'Check Gemini access and restored history without generating or publishing'
+        description: 'Check Gemini, connected YouTube channel and history without generating or publishing'
         type: boolean
         default: false
   schedule:
@@ -58,6 +58,9 @@ jobs:
           node ustazon/daily.mjs probe
           node ustazon/daily.mjs budget
           node ustazon/daily.mjs status
+      - name: Check YouTube offline access and channel
+        if: inputs.check_only && vars.YOUTUBE_CHANNEL_ID != ''
+        run: node ustazon/daily.mjs youtube-check
       - name: Generate and schedule verified videos
         if: ${{ !inputs.check_only }}
         run: node ustazon/daily.mjs worker --once

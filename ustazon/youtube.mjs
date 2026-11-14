@@ -8,6 +8,10 @@ import {fileDigest} from './maintenance.mjs';
 
 const SCOPES=['https://www.googleapis.com/auth/youtube.upload','https://www.googleapis.com/auth/youtube.readonly'];
 const TOKEN='https://oauth2.googleapis.com/token';
+function requireScopes(data) {
+  const granted=new Set(String(data.scope||'').split(/\s+/));
+  if(SCOPES.some(scope=>!granted.has(scope)))throw new Error('YouTube upload and channel-read permissions are both required. Reconnect with youtube-auth and allow both permissions.');
+}
 export function youtubeError(message,properties={}){return Object.assign(new Error(message),{name:'YouTubeError',...properties});}
 function retryDelay(value){return value?(Number.isFinite(Number(value))?Number(value)*1000:Math.max(0,Date.parse(value)-Date.now())):0;}
 async function request(url,options={},fetchImpl=fetch) {
@@ -38,19 +42,26 @@ export async function verifyChannel(token,expected,fetchImpl=fetch) {
   if(data?.items?.length!==1 || data.items[0].id!==expected)throw new Error('The signed-in YouTube channel does not match expectedChannelId. Select the intended channel when connecting.');
   return {id:data.items[0].id,title:data.items[0].snippet?.title};
 }
-async function accessToken(config) {
+async function accessToken(config,{forceRefresh=false,fetchImpl=fetch}={}) {
   const tokenFile=path.resolve(HERE,config.youtube.tokenFile);
   const stored=await readJSON(tokenFile,null);
   if(!stored?.refresh_token)throw new Error('YouTube is not connected. Run node ustazon/daily.mjs youtube-auth.');
   if(stored.channelId!==pinnedChannel(config))throw new Error('Stored YouTube authorization belongs to a different channel.');
-  if(stored.access_token && stored.expiresAt>Date.now()+60000)return stored.access_token;
+  requireScopes(stored);
+  if(!forceRefresh && stored.access_token && stored.expiresAt>Date.now()+60000)return stored.access_token;
   const client=await clientSettings(config);
   const body=new URLSearchParams({client_id:client.client_id,client_secret:client.client_secret||'',refresh_token:stored.refresh_token,grant_type:'refresh_token'});
-  const response=await request(TOKEN,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+  const response=await request(TOKEN,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body},fetchImpl);
   const data=await responseJSON(response,'Google token refresh');
   if(!data?.access_token)throw new Error('Google returned no access token');
   const updated={...stored,...data,expiresAt:Date.now()+Number(data.expires_in||3600)*1000};
+  requireScopes(updated);
   await writeJSON(tokenFile,updated);return updated.access_token;
+}
+export async function checkConnection(config,{fetchImpl=fetch}={}) {
+  const token=await accessToken(config,{forceRefresh:true,fetchImpl});
+  const channel=await verifyChannel(token,pinnedChannel(config),fetchImpl);
+  return {...channel,offlineAccess:true,refreshVerified:true};
 }
 export async function authorize(config) {
   const expected=pinnedChannel(config),client=await clientSettings(config);
@@ -84,6 +95,7 @@ export async function authorize(config) {
       body:new URLSearchParams({client_id:client.client_id,client_secret:client.client_secret||'',code,code_verifier:verifier,redirect_uri:redirect,grant_type:'authorization_code'})});
     const data=await responseJSON(response,'Google authorization');
     if(!data?.refresh_token||!data.access_token)throw new Error('Google did not grant offline access. Reconnect and allow the requested access.');
+    requireScopes(data);
     const channel=await verifyChannel(data.access_token,expected);
     await writeJSON(path.resolve(HERE,config.youtube.tokenFile),{...data,channelId:channel.id,expiresAt:Date.now()+Number(data.expires_in||3600)*1000});
     console.log('Connected: '+channel.title+' ('+channel.id+'). Set youtube.enabled=true when you want scheduled publishing.');

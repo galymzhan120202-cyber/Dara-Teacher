@@ -3,10 +3,52 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import {uploadURL,uploadMetadata,verifyChannel,resumableUpload} from '../youtube.mjs';
+import {uploadURL,uploadMetadata,verifyChannel,resumableUpload,checkConnection} from '../youtube.mjs';
 const url='https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&upload_id=test';
 const id='abcdefghijk';
 const respond=(data,status=200,headers={})=>new Response(data===null?null:JSON.stringify(data),{status,headers});
+async function connectedFixture(t,tokenOverrides={}) {
+  const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ustazon-oauth-check-'));
+  t.after(async()=>{
+    assert.equal(path.dirname(path.resolve(dir)),path.resolve(os.tmpdir()));
+    assert(path.basename(dir).startsWith('ustazon-oauth-check-'));
+    await fs.rm(dir,{recursive:true,force:true});
+  });
+  const config={youtube:{expectedChannelId:'UC'+'a'.repeat(22),clientFile:path.join(dir,'client.json'),tokenFile:path.join(dir,'token.json')}};
+  const stored={channelId:config.youtube.expectedChannelId,access_token:'old-access',refresh_token:'offline-secret',expiresAt:Date.now()+3600000,
+    scope:'https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly',...tokenOverrides};
+  await fs.writeFile(config.youtube.clientFile,JSON.stringify({installed:{client_id:'client-id',client_secret:'client-secret'}}));
+  await fs.writeFile(config.youtube.tokenFile,JSON.stringify(stored));
+  return {config,stored};
+}
+test('connection check proves refresh works and reads the pinned channel without uploading',async t=>{
+  const {config}=await connectedFixture(t),calls=[];
+  const result=await checkConnection(config,{fetchImpl:async(address,options)=>{
+    calls.push(address);
+    if(address==='https://oauth2.googleapis.com/token') {
+      assert.equal(options.method,'POST');assert.equal(options.body.get('grant_type'),'refresh_token');
+      return respond({access_token:'new-access',expires_in:3600});
+    }
+    assert.equal(address,'https://www.googleapis.com/youtube/v3/channels?part=id,snippet&mine=true');
+    assert.equal(options.headers.Authorization,'Bearer new-access');assert.equal(options.method,undefined);
+    return respond({items:[{id:config.youtube.expectedChannelId,snippet:{title:'Test channel'}}]});
+  }});
+  assert.deepEqual(result,{id:config.youtube.expectedChannelId,title:'Test channel',offlineAccess:true,refreshVerified:true});
+  assert.equal(calls.length,2);
+  const saved=JSON.parse(await fs.readFile(config.youtube.tokenFile,'utf8'));
+  assert.equal(saved.access_token,'new-access');assert.equal(saved.refresh_token,'offline-secret');
+});
+test('connection check rejects a missing upload grant before any network request',async t=>{
+  const {config}=await connectedFixture(t,{scope:'https://www.googleapis.com/auth/youtube.readonly'});
+  await assert.rejects(checkConnection(config,{fetchImpl:async()=>assert.fail('No API call should be made')}),/both required/);
+});
+test('connection check detects revoked credentials without logging secrets or replacing the stored token',async t=>{
+  const {config,stored}=await connectedFixture(t);
+  await assert.rejects(checkConnection(config,{fetchImpl:async()=>respond({error:'invalid_grant',error_description:'offline-secret client-secret'},400)}),error=>{
+    assert.match(error.message,/invalid_grant/);assert.doesNotMatch(error.message,/offline-secret|client-secret/);return true;
+  });
+  assert.deepEqual(JSON.parse(await fs.readFile(config.youtube.tokenFile,'utf8')),stored);
+});
 test('channel pin and upload host prevent posting to an unintended destination',async()=>{
   assert.throws(()=>uploadURL('https://example.org/upload'),/Untrusted/);
   assert.throws(()=>uploadURL('https://www.googleapis.com.evil.example/upload/youtube/v3/videos'),/Untrusted/);

@@ -29,11 +29,12 @@ const HELP='Ustazon reliable daily bot\n\n'+
 'node ustazon/daily.mjs retry --job JOB_ID\n'+
 'node ustazon/daily.mjs worker [--once]\n'+
 'node ustazon/daily.mjs youtube-auth\n'+
+'node ustazon/daily.mjs youtube-check\n'+
 'node ustazon/daily.mjs publish [--date YYYY-MM-DD]\n\n'+
 'generate creates local MP4 only. YouTube must be linked and enabled to publish.\n';
 export function parseOptions(argv) {
   const result={command:argv.shift()||'status'};
-  if(!['probe','budget','plan','generate','sample','status','health','retry','worker','publish','youtube-auth','help'].includes(result.command))throw new Error('Unknown command');
+  if(!['probe','budget','plan','generate','sample','status','health','retry','worker','publish','youtube-auth','youtube-check','help'].includes(result.command))throw new Error('Unknown command');
   while(argv.length) {
     const arg=argv.shift();
     if(['--draft','--once','--help'].includes(arg))result[arg.slice(2)]=true;
@@ -160,6 +161,7 @@ export async function main(argv=process.argv.slice(2)) {
     console.log('API connection OK. Generation quotas are checked when used.');return;
   }
   if(opts.command==='youtube-auth'){const {authorize}=await import('./youtube.mjs');await authorize(settings.config);return;}
+  if(opts.command==='youtube-check'){const {checkConnection}=await import('./youtube.mjs');console.log(JSON.stringify(await checkConnection(settings.config),null,2));return;}
   const controller=new AbortController(),stop=()=>controller.abort();
   let stopPoll;
   if(opts.command==='worker')stopPoll=setInterval(()=>{fs.access(path.join(STATE_DIR,'STOP')).then(stop).catch(()=>{});},1000);

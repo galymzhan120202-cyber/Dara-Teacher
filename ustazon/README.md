@@ -71,11 +71,13 @@ Runtime күйі репозиторийдегі арнайы ustazon-runtime-sta
 
 1. Google Cloud-та YouTube Data API қосып, Desktop OAuth client файлын жоба түбіріне client_secrets.json ретінде сақтаңыз.
 2. automation.json ішіндегі expectedChannelId өрісін немесе YOUTUBE_CHANNEL_ID айнымалысын арна ID-іне қойыңыз.
-3. npm run video:youtube:connect арқылы жергілікті браузерде сол арнаға кіріңіз. Бот арна ID-ін салыстырады.
+3. npm run video:youtube:connect арқылы жергілікті браузерде сол арнаға кіріңіз. Арнаны оқу және видео жүктеу рұқсаттарының екеуін де беріңіз. Бот арна ID-ін салыстырады. node ustazon/daily.mjs youtube-check рұқсатты жаңартып, арнаны тексереді; видео жүктемейді.
 4. Actions-та YOUTUBE_CLIENT_JSON_B64 және YOUTUBE_TOKEN_JSON_B64 Secrets мәндеріне client_secrets.json және ustazon/.state/youtube-token.json файлдарының base64 нұсқаларын қосыңыз. YOUTUBE_CHANNEL_ID Variable мәнін орнатыңыз.
 5. Бір сынақ жүктеуі тексерілгеннен кейін USTAZON_PUBLISH_ENABLED=true қойыңыз.
 
 OAuth файлдары кодпен бірге жарияланбайды. Қалпына келтірілген жаңа токен болса, workflow оны ескі Secret нұсқасымен алмастырмайды. Жүктеудің соңғы жауабы жоғалса, сол сессия тексеріледі; екінші видео автоматты ашылмайды.
+
+YOUTUBE_CHANNEL_ID орнатылған кезде Actions-тағы check_only режимі YouTube рұқсатын жаңартуды және арна ID-ін де тексереді. Google Auth қолданбасы External / Testing күйінде болса, YouTube refresh token 7 күннен кейін жарамсыз болады. Ұзақ мерзімді жұмыс үшін Google Auth Platform-дағы Production талаптарын аяқтап, арнаны қайта қосыңыз.
 
 ## Контентті кеңейту
 
