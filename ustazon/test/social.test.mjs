@@ -45,6 +45,18 @@ test('historical jobs and late videos are never backfilled',async()=>{
 test('draft API request cannot schedule or send; AI labels and automatic mode retained',()=>{
  const f=fixture();for(const p of ['instagram','tiktok']){const input=postInput(f.job,p,f.options.config.buffer.channels[p],'https://res.cloudinary.com/test/video/upload/test.mp4',{draft:true});assert.equal(input.saveToDraft,true);assert.equal(input.schedulingType,'automatic');assert.equal(input.metadata[p].isAiGenerated,true);}
 });
+test('both languages include the other social profile and YouTube in every caption',()=>{
+ const f=fixture();
+ for(const language of ['kk','ru'])for(const platform of ['instagram','tiktok']){
+  f.job.language=language;
+  const {text}=postInput(f.job,platform,f.options.config.buffer.channels[platform],'https://res.cloudinary.com/test/video/upload/test.mp4');
+  assert(text.startsWith('Тест\n\nОписание\n\n'));
+  assert(text.includes(language==='kk'?'Біз басқа желілерде:':'Мы также здесь:'));
+  assert(text.includes('YouTube: https://www.youtube.com/@DaraUstaz'));
+  assert.equal(text.includes('https://www.instagram.com/daraustaz/'),platform==='tiktok');
+  assert.equal(text.includes('https://www.tiktok.com/@dara.ustaz'),platform==='instagram');
+ }
+});
 test('GraphQL mutation network failures are not retried',async()=>{
  let calls=0;const client=new BufferClient('test',async()=>{calls++;throw new Error('timeout');});await assert.rejects(client.create({}));assert.equal(calls,1);
 });

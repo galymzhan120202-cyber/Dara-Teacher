@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
+import socialLinks from './social-links.json' with {type:'json'};
 
 const fields='id channelId status text dueAt externalLink sentAt schedulingType';
 export class BufferClient {
@@ -46,7 +47,10 @@ export function postInput(job,platform,channelId,url,{draft=false}={}) {
   if(!['instagram','tiktok'].includes(platform))throw new Error('Unsupported platform');
   if(!url?.startsWith('https://res.cloudinary.com/'))throw new Error('Verified HTTPS media URL required');
   const topic=job.voicedTopic||job.topic;
-  const text=[topic.title,topic.description].filter(Boolean).join('\n\n');
+  const other=platform==='tiktok'?'instagram':'tiktok';
+  const heading=(job.language||topic.language)==='ru'?'Мы также здесь:':'Біз басқа желілерде:';
+  const links=[heading,(other==='instagram'?'Instagram':'TikTok')+': '+socialLinks[other],'YouTube: '+socialLinks.youtube].join('\n');
+  const text=[topic.title,topic.description,links].filter(Boolean).join('\n\n');
   if(!text||text.length>2200)throw new Error('Invalid social caption');
   return {channelId,text,assets:[{video:{url}}],schedulingType:'automatic',mode:'customScheduled',dueAt:job.publishAt,saveToDraft:draft,aiAssisted:true,
     metadata:platform==='instagram'?{instagram:{type:'reel',shouldShareToFeed:true,isAiGenerated:true}}:{tiktok:{isAiGenerated:true}},source:'ustazon'};
