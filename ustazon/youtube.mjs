@@ -5,6 +5,7 @@ import {createHash,randomBytes,timingSafeEqual} from 'node:crypto';
 import {HERE} from './config.mjs';
 import {readJSON,writeJSON} from './state.mjs';
 import {fileDigest} from './maintenance.mjs';
+import socialLinks from './social-links.json' with {type:'json'};
 
 const SCOPES=['https://www.googleapis.com/auth/youtube.upload','https://www.googleapis.com/auth/youtube.readonly'];
 const TOKEN='https://oauth2.googleapis.com/token';
@@ -111,13 +112,15 @@ export function uploadURL(value) {
 export function uploadMetadata(info,publishAt,mode,now=new Date()) {
   if(info.status!=='complete'||info.draft)throw new Error('Only a completed production video can be uploaded');
   if(!['kk','ru'].includes(info.language))throw new Error('Video language is missing');
-  if(!info.title||info.title.length>100||info.description?.length>5000)throw new Error('Invalid video metadata');
+  const heading=info.language==='ru'?'Мы также здесь:':'Біз басқа желілерде:';
+  const description=[info.description,[heading,'TikTok: '+socialLinks.tiktok,'Instagram: '+socialLinks.instagram].join('\n')].filter(Boolean).join('\n\n');
+  if(!info.title||info.title.length>100||description.length>5000)throw new Error('Invalid video metadata');
   const status={privacyStatus:'public',selfDeclaredMadeForKids:false};
   if(mode==='schedule') {
     if(Date.parse(publishAt)<=now.getTime()+120000)throw new Error('Scheduled publication must be more than two minutes in the future');
     status.privacyStatus='private';status.publishAt=publishAt;
   }else if(mode!=='now')throw new Error('Invalid publication mode');
-  return {snippet:{title:info.title,description:info.description,tags:[...(info.tags||[]),'ustazon_job_'+createHash('sha256').update(info.topicId||info.title).digest('hex').slice(0,20)],categoryId:info.categoryId||'27',
+  return {snippet:{title:info.title,description,tags:[...(info.tags||[]),'ustazon_job_'+createHash('sha256').update(info.topicId||info.title).digest('hex').slice(0,20)],categoryId:info.categoryId||'27',
     defaultLanguage:info.language,defaultAudioLanguage:info.language},status};
 }
 export async function resumableUpload({file,body,record,save,token,fetchImpl=fetch,reserve=async()=>{},reconcileOnly=false,signal}) {

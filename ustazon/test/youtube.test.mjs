@@ -60,6 +60,12 @@ test('scheduled uploads start private with the correct language and never use a 
   const body=uploadMetadata(info,'2026-11-14T10:00:00Z','schedule',new Date('2026-11-14T09:00:00Z'));
   assert.equal(body.status.privacyStatus,'private');assert.equal(body.snippet.defaultLanguage,'ru');
   assert.equal(body.status.selfDeclaredMadeForKids,false);
+  for(const language of ['kk','ru']){
+    const result=uploadMetadata({...info,language},null,'now');
+    assert.equal(result.snippet.description,'Описание\n\n'+(language==='ru'?'Мы также здесь:':'Біз басқа желілерде:')+'\nTikTok: https://www.tiktok.com/@dara.ustaz\nInstagram: https://www.instagram.com/daraustaz/');
+  }
+  assert.equal(info.description,'Описание');
+  assert.throws(()=>uploadMetadata({...info,description:'x'.repeat(4900)},null,'now'),/metadata/);
   assert.throws(()=>uploadMetadata({...info,draft:true},null,'now'),/production/);
   assert.throws(()=>uploadMetadata(info,'2026-11-14T08:00:00Z','schedule',new Date('2026-11-14T09:00:00Z')),/future/);
 });

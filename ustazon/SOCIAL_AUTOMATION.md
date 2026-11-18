@@ -10,6 +10,7 @@ YouTube keeps its existing direct uploader.
 
 Every TikTok caption ends with Instagram and YouTube profile links. Every
 Instagram caption ends with TikTok and YouTube profile links. Addresses are
+also added to new YouTube descriptions (TikTok and Instagram). All addresses are
 configured in `social-links.json`; the footer heading follows the video's
 Kazakh/Russian language. The full caption including links is length-checked.
 
