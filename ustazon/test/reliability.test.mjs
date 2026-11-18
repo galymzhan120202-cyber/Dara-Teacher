@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {legacySlots} from './legacy-config.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -18,6 +19,7 @@ import {loadProject} from '../model.mjs';
 
 const here=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const baseConfig=JSON.parse(await fs.readFile(path.join(here,'automation.json'),'utf8'));
+legacySlots(baseConfig);
 const knowledge=JSON.parse(await fs.readFile(path.join(here,'knowledge.json'),'utf8'));
 const config=()=>({...structuredClone(baseConfig),youtube:{...baseConfig.youtube,enabled:true,expectedChannelId:'UC'+'a'.repeat(22)}});
 async function fixture(t) {

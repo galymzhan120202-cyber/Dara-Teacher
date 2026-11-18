@@ -14,6 +14,7 @@ import {loadProject} from './model.mjs';
 import {generateJob,artifactReady,reserveContent,refreshVerifiedJob} from './production.mjs';
 import {contentInventory,assertVerifiedTopic} from './verified-content.mjs';
 import {runCycle} from './runner.mjs';
+import {checkSocial,runSocial} from './social.mjs';
 import {requireDisk,maintain,healthSnapshot,logEvent} from './maintenance.mjs';
 export {generateJob} from './production.mjs';
 
@@ -34,7 +35,7 @@ const HELP='Ustazon reliable daily bot\n\n'+
 'generate creates local MP4 only. YouTube must be linked and enabled to publish.\n';
 export function parseOptions(argv) {
   const result={command:argv.shift()||'status'};
-  if(!['probe','budget','plan','generate','sample','status','health','retry','worker','publish','youtube-auth','youtube-check','help'].includes(result.command))throw new Error('Unknown command');
+  if(!['probe','budget','plan','generate','sample','status','health','retry','worker','publish','youtube-auth','youtube-check','social-check','help'].includes(result.command))throw new Error('Unknown command');
   while(argv.length) {
     const arg=argv.shift();
     if(['--draft','--once','--help'].includes(arg))result[arg.slice(2)]=true;
@@ -55,7 +56,9 @@ async function legacyLockCheck() {
   const old=await readJSON(path.join(STATE_DIR,'daily.lock'),null);
   if(old&&(!old.pid||processAlive(old.pid)))throw new Error('An older bot process still owns daily.lock. Stop it before using the new worker.');
 }
-export async function execute(opts,{config,apiKey},{signal}={}) {
+export async function execute(opts,{config,apiKey,socialCredentials},{signal}={}) {
+  const stopped=()=>fs.access(path.join(STATE_DIR,'STOP')).then(()=>true,()=>false);
+  if(['worker','publish'].includes(opts.command)&&await stopped())throw new Error('Bot is paused: STOP exists');
   await legacyLockCheck();
   const remote=process.env.USTAZON_REMOTE_STATE==='true'?new (await import('./remote-state.mjs')).GitHubState():null;
   const store=await openStore(STATE_DIR);
@@ -67,12 +70,12 @@ export async function execute(opts,{config,apiKey},{signal}={}) {
     if(['status','health'].includes(opts.command)) {
       const worker=await readJSON(path.join(STATE_DIR,'health.json'),null);
       if(worker)worker.running=processAlive(worker.pid)&&Date.now()-Date.parse(worker.heartbeat)<Math.max(120,runtime(config).pollSeconds*3)*1000;
-      console.log(JSON.stringify({timezone:config.timezone,youtubeEnabled:config.youtube.enabled,database:store.stats(),
+      console.log(JSON.stringify({timezone:config.timezone,youtubeEnabled:config.youtube.enabled,bufferEnabled:config.buffer?.enabled,database:store.stats(),
         contentInventory:contentInventory(state.jobs),
         requestsToday:state.requests[localDate(new Date(),config.timezone)]||0,requestLimit:config.gemini.maxDailyRequests,
         geminiBudget:budgetReport(config,state,new Date(),await preparedNarrationStatus(config)),
         jobs:state.jobs.slice(-30).map(j=>({id:j.id,date:j.date,language:j.language,publishAt:j.publishAt,status:j.status,publication:j.publication,videoId:j.youtube?.videoId,
-          error:j.error||j.uploadError,nextAttempt:j.retries?.generate?.nextAt||j.retries?.publish?.nextAt,attention:Object.values(j.retries||{}).some(r=>r.kind==='attention')})),
+          social:j.social,socialErrors:j.socialErrors,error:j.error||j.uploadError,nextAttempt:j.retries?.generate?.nextAt||j.retries?.publish?.nextAt,attention:Object.values(j.retries||{}).some(r=>r.kind==='attention')})),
         worker},null,2));return;
     }
     store.acquire();
@@ -127,6 +130,7 @@ export async function execute(opts,{config,apiKey},{signal}={}) {
     }else result=await runCycle({state,config,apiKey,command:opts.command,date,only:opts.only,draft:Boolean(opts.draft),save,generate,publish,
       preflight:()=>requireDisk(HERE,config),log,signal});
     phase='idle';currentJob=null;
+    if(['worker','publish'].includes(opts.command)&&!signal?.aborted)await runSocial({state,date,config,credentials:socialCredentials,save,claim:(...args)=>store.claim(...args),ready:artifactReady,validate:job=>{if(config.content?.mode==='verified')assertVerifiedTopic(job.voicedTopic||job.topic);},stopped:async()=>signal?.aborted||await stopped()});
     if(!signal?.aborted) {
       try{const maintenance=await maintain({store,state,stateDir:STATE_DIR,config,date:localDate(new Date(),config.timezone)});if(!maintenance.skipped)await save();}
       catch(error){await log('maintenance-failed',{error:redact(error.message,[apiKey])});}
@@ -155,6 +159,7 @@ function sleep(ms,signal) {
 export async function main(argv=process.argv.slice(2)) {
   const opts=parseOptions([...argv]);if(opts.help||opts.command==='help'){console.log(HELP);return;}
   let settings=await loadSettings();
+  if(opts.command==='social-check'){console.log(JSON.stringify(await checkSocial(settings.config,settings.socialCredentials),null,2));return;}
   if(opts.command==='probe') {
     const client=new GeminiClient({apiKey:settings.apiKey,retries:0}),models=await client.models();
     for(const model of [settings.config.gemini.model,settings.config.gemini.ttsModel]){if(!models.includes(model))throw new Error('Model is not listed: '+model);console.log('Listed model: '+model);}

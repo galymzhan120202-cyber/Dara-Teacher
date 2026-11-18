@@ -112,7 +112,7 @@ export class GitHubState {
       const audio=path.join(baseDir,'.state','audio');
       for(const name of await fs.readdir(audio).catch(e=>{if(e.code==='ENOENT')return [];throw e;}))if(/^[a-f0-9]{64}\.wav$/.test(name))await add('.state/audio/'+name,path.join(audio,name));
       const seen=new Set();
-      for(const job of state.jobs.filter(j=>j.outputDir&&!j.youtube?.videoId&&j.status!=='uploaded'&&!j.mediaRemoved)) {
+      for(const job of state.jobs.filter(j=>j.outputDir&&!j.mediaRemoved&&((!j.youtube?.videoId&&j.status!=='uploaded')||(j.socialEligible&&['instagram','tiktok'].some(p=>!j.social?.[p]?.postId))))) {
         for(const name of ['video.mp4','metadata.json','storyboard.png','thumbnail.png','captions.srt','narration.txt']) {
           const source=path.join(job.outputDir,name),rel=path.relative(baseDir,source).replaceAll('\\','/');
           if(!allowedStatePath(rel)||seen.has(rel))continue;

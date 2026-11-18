@@ -11,7 +11,7 @@ export async function runCycle({state,config,apiKey='',command='worker',date,onl
   const beforePlan=JSON.stringify(state.jobs.map(j=>[j.id,j.date,j.slot,j.publishAt]));
   const dayJobs=planDay(state,currentDate,config);
   if(JSON.stringify(state.jobs.map(j=>[j.id,j.date,j.slot,j.publishAt]))!==beforePlan){await save();changed=true;}
-  const selected=(command==='worker'?selectWorkerJobs(state,currentDate,config):dayJobs).filter(j=>!only||j.slot===only);
+  const selected=(command==='worker'?selectWorkerJobs(state,currentDate,config):dayJobs).filter(j=>!j.superseded&&(!only||j.slot===only));
   if(only&&!selected.length)throw new Error('No matching daily slot: '+only);
   for(const job of selected) {
     if(signal?.aborted)break;

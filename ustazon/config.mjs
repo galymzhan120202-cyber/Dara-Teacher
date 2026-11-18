@@ -34,13 +34,14 @@ export async function loadSettings() {
     config.gemini.freeTier.confirmed=env.GEMINI_FREE_TIER_CONFIRMED==='true';
   }
   config.runtime={...DEFAULT_RUNTIME,...config.runtime};
+  if(env.USTAZON_BUFFER_ENABLED!==undefined){if(!['true','false'].includes(env.USTAZON_BUFFER_ENABLED))throw new Error('Invalid USTAZON_BUFFER_ENABLED');config.buffer.enabled=env.USTAZON_BUFFER_ENABLED==='true';}
   validateSettings(config);
-  return {config, apiKey:env.GEMINI_API_KEY || env.GOOGLE_API_KEY || ''};
+  return {config, apiKey:env.GEMINI_API_KEY || env.GOOGLE_API_KEY || '',socialCredentials:{bufferToken:env.BUFFER_API_TOKEN,cloudName:env.CLOUDINARY_CLOUD_NAME,cloudKey:env.CLOUDINARY_API_KEY,cloudSecret:env.CLOUDINARY_API_SECRET}};
 }
 export function validateSettings(config) {
   if (config.version !== 1) throw new Error('Unknown automation configuration version');
   new Intl.DateTimeFormat('en', {timeZone:config.timezone}).format(new Date());
-  if (!Array.isArray(config.slots) || ![3,6].includes(config.slots.length)) throw new Error('Configure three or six daily slots');
+  if (!Array.isArray(config.slots) || ![1,3,6].includes(config.slots.length)) throw new Error('Configure one, three or six daily slots');
   const ids = new Set(), times = new Set();
   for (const slot of config.slots) {
     if (!/^[a-z]+$/.test(slot.id) || ids.has(slot.id) || !/^([01]\d|2[0-3]):[0-5]\d$/.test(slot.time) || times.has(slot.time) || !['tip','material','quiz'].includes(slot.format) || !['kk','ru'].includes(slot.language)) throw new Error('Invalid or duplicate daily slot');
@@ -48,10 +49,14 @@ export function validateSettings(config) {
   }
   if(config.languageRotation!==undefined) {
     const rotation=config.languageRotation,kk=config.slots.filter(s=>s.language==='kk').length;
-    if(!rotation||rotation.mode!=='alternate-days'||config.slots.length!==3||![1,2].includes(kk))throw new Error('Language rotation requires three mixed Kazakh/Russian slots and alternate-days mode');
+    if(!rotation||rotation.mode!=='alternate-days'||!(config.slots.length===1||(config.slots.length===3&&[1,2].includes(kk))))throw new Error('Language rotation requires one slot or three mixed slots');
     validateDate(rotation.startDate);
   }
   const g = config.gemini;
+  if(config.formatRotation){validateDate(config.formatRotation.startDate);if(config.formatRotation.formats?.length!==3||[...config.formatRotation.formats].sort().join(',')!=='material,quiz,tip')throw new Error('Invalid format rotation');}
+  if(config.buffer){
+    if(typeof config.buffer.enabled!=='boolean'||!config.buffer.channels||Object.keys(config.buffer.channels).sort().join(',')!=='instagram,tiktok'||Object.values(config.buffer.channels).some(id=>!/^[a-f0-9]{24}$/.test(id)))throw new Error('Invalid Buffer configuration');
+  }
   if (!g || !/^[a-z0-9.-]+$/.test(g.model) || !/^[a-z0-9.-]+$/.test(g.ttsModel) || !/^[A-Za-z0-9_-]+$/.test(g.voice)) throw new Error('Invalid Gemini model or voice');
   if (!Number.isInteger(g.maxDailyRequests) || g.maxDailyRequests < 1 || g.maxDailyRequests > 100 || !Number.isInteger(g.maxScriptAttempts) || g.maxScriptAttempts < 1 || g.maxScriptAttempts > 3) throw new Error('Invalid Gemini request limits');
   if (g.templateFallback !== undefined && typeof g.templateFallback !== 'boolean') throw new Error('templateFallback must be a boolean');

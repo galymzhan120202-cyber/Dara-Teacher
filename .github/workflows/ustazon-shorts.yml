@@ -27,6 +27,11 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       USTAZON_STATE_KEY: ${{ secrets.USTAZON_STATE_KEY }}
       USTAZON_REMOTE_STATE: 'true'
+      USTAZON_BUFFER_ENABLED: ${{ vars.USTAZON_PUBLISH_ENABLED || 'false' }}
+      BUFFER_API_TOKEN: ${{ secrets.BUFFER_API_TOKEN }}
+      CLOUDINARY_CLOUD_NAME: ${{ vars.CLOUDINARY_CLOUD_NAME }}
+      CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+      CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_FREE_TIER_CONFIRMED: ${{ vars.GEMINI_FREE_TIER_CONFIRMED || 'false' }}
       USTAZON_YOUTUBE_ENABLED: ${{ vars.USTAZON_PUBLISH_ENABLED || 'false' }}
@@ -61,8 +66,11 @@ jobs:
       - name: Check YouTube offline access and channel
         if: inputs.check_only && vars.YOUTUBE_CHANNEL_ID != ''
         run: node ustazon/daily.mjs youtube-check
+      - name: Check Buffer channels without publishing
+        if: inputs.check_only
+        run: node ustazon/daily.mjs social-check
       - name: Generate and schedule verified videos
-        if: ${{ !inputs.check_only }}
+        if: ${{ !inputs.check_only && vars.USTAZON_AUTOMATION_ENABLED == 'true' }}
         run: node ustazon/daily.mjs worker --once
       - name: Report queue and publication receipts
         if: always() && steps.restore.outcome == 'success'

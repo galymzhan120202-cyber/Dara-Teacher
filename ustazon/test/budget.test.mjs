@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {legacySlots} from './legacy-config.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -10,6 +11,7 @@ import {failurePolicy} from '../reliability.mjs';
 
 const here=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const base=JSON.parse(await fs.readFile(path.join(here,'automation.json'),'utf8'));
+legacySlots(base);
 const script='/models/gemini-3.8-flash:generateContent',speech='/models/gemini-3.8-flash-tts:generateContent';
 const config=overrides=>({...structuredClone(base),gemini:{...structuredClone(base.gemini),freeTier:{...base.gemini.freeTier,confirmed:true,minIntervalMs:61000,...overrides}}});
 function harness(cfg=config(),state={jobs:[],requests:{}},extra={}) {

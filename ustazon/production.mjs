@@ -40,7 +40,7 @@ export function reserveContent(store,job,topic) {
   store.claim('exercise',exerciseIdentity(topic),job.id);
 }
 export function refreshVerifiedJob(job,config) {
-  if(config.content?.mode!=='verified'||job.youtube?.videoId||job.status==='uploaded'||job.youtube?.sessionUrl||job.youtube?.initiating)return false;
+  if(config.content?.mode!=='verified'||job.youtube?.videoId||job.status==='uploaded'||job.youtube?.sessionUrl||job.youtube?.initiating||Object.values(job.social||{}).some(r=>r.intent||r.postId))return false;
   if(!job.topic&&!job.outputDir)return false;
   try{assertVerifiedTopic(job.topic);return false;}catch(error){
     if(job.outputDir){job.replacedArtifacts||=[];job.replacedArtifacts.push({outputDir:job.outputDir,reason:'outdated-content'});}

@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {legacySlots} from './legacy-config.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
@@ -18,6 +19,7 @@ import {generateJob} from '../daily.mjs';
 
 const here=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const config=JSON.parse(await fs.readFile(path.join(here,'automation.json'),'utf8'));
+legacySlots(config);
 config.content={mode:'generated'}; // Exercise the optional Gemini adapter separately from verified production mode.
 const knowledge=JSON.parse(await fs.readFile(path.join(here,'knowledge.json'),'utf8'));
 const project=await loadProject(path.join(here,'catalog.json'),path.join(here,'theme.json'));

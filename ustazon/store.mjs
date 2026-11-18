@@ -67,6 +67,11 @@ export class Store {
     this.transaction(()=>{
       const upsert=this.db.prepare('INSERT INTO jobs VALUES(?,?,?,?) ON CONFLICT(id) DO UPDATE SET date=excluded.date,status=excluded.status,payload=excluded.payload');
       for(const [job,value] of changes) {
+          const prior=this.db.prepare('SELECT payload FROM jobs WHERE id=?').get(job.id);
+          for(const [platform,receipt] of Object.entries(prior?JSON.parse(prior.payload).social||{}:{})){
+            if(receipt.postId&&job.social?.[platform]?.postId!==receipt.postId)throw new Error('Cannot erase Buffer receipt: '+job.id);
+            if(receipt.intent&&!job.social?.[platform]?.intent)throw new Error('Cannot erase Buffer publication intent: '+job.id);
+          }
         const published=this.db.prepare('SELECT video_id FROM publications WHERE job_id=?').get(job.id);
         if(published&&job.youtube?.videoId!==published.video_id)throw new Error('Cannot erase or replace a completed publication receipt: '+job.id);
         if(job.youtube?.videoId) {
