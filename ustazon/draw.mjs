@@ -200,7 +200,8 @@ export function makeRenderer(theme, timeline, {width = 1080, height = 1920, font
       const progress = clamp((frame - item.startFrame) / (item.endFrame - item.startFrame));
       if (progress) roundRect(ctx, 96 + i * (segmentWidth + gap), 205, segmentWidth * progress, 6, 3, c.primary);
     });
-    const entry = ease(local / .7);
+    // The opening question and source image must be readable on the first frame.
+    const entry = scene.kind === 'hook' ? 1 : ease(local / .7);
     ctx.save(); ctx.globalAlpha = .25 + entry * .75; ctx.translate(0, (1 - entry) * 38);
     paintText(ctx, layout.label, 96, 290, c.primary);
     paintText(ctx, layout.headline, 96, 368, c.ink);
