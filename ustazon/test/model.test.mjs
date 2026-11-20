@@ -104,13 +104,14 @@ test('unrenderable text and invalid frame sizes fail instead of silently clippin
   assert.throws(() => makeRenderer(project.theme, createTimeline(project.catalog.topics[0]), {width:541, height:960, fontPath:project.fontPath}));
 });
 
-test('metadata keeps source references separate and does not invent an unavailable destination', () => {
+test('metadata keeps source references separate and includes the approved website', () => {
   const topic = project.catalog.topics[0];
   const result = metadata(topic, project.theme, createTimeline(topic));
   assert.equal(result.categoryId, '27');
   assert.equal(result.language, 'kk');
   assert.equal(result.madeForKids, false);
   assert.deepEqual(result.sources, topic.sourceRefs);
-  assert.doesNotMatch(result.description, /https?:|USTAZON_CONTEXT|card \d+|\/opt\//);
+  assert.doesNotMatch(result.description, /USTAZON_CONTEXT|card \d+|\/opt\//);
+  assert(result.description.includes('Сайт: https://ustaz.daralearn.kz/'));
   assert.equal(result.durationSeconds, 20);
 });

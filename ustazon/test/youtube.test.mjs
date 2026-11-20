@@ -62,7 +62,9 @@ test('scheduled uploads start private with the correct language and never use a 
   assert.equal(body.status.selfDeclaredMadeForKids,false);
   for(const language of ['kk','ru']){
     const result=uploadMetadata({...info,language},null,'now');
-    assert.equal(result.snippet.description,'Описание\n\n'+(language==='ru'?'Мы также здесь:':'Біз басқа желілерде:')+'\nTikTok: https://www.tiktok.com/@dara.ustaz\nInstagram: https://www.instagram.com/daraustaz/');
+    assert.equal(result.snippet.description,'Описание\n\nСайт: https://ustaz.daralearn.kz/\n\n'+(language==='ru'?'Мы также здесь:':'Біз басқа желілерде:')+'\nTikTok: https://www.tiktok.com/@dara.ustaz\nInstagram: https://www.instagram.com/daraustaz/');
+    const withExisting=uploadMetadata({...info,language,description:'Описание\n\nСайт: https://ustaz.daralearn.kz/'},null,'now');
+    assert.equal(withExisting.snippet.description.split('https://ustaz.daralearn.kz/').length-1,1);
   }
   assert.equal(info.description,'Описание');
   assert.throws(()=>uploadMetadata({...info,description:'x'.repeat(4900)},null,'now'),/metadata/);

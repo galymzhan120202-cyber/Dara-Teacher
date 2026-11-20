@@ -5,7 +5,7 @@ import {createHash,randomBytes,timingSafeEqual} from 'node:crypto';
 import {HERE} from './config.mjs';
 import {readJSON,writeJSON} from './state.mjs';
 import {fileDigest} from './maintenance.mjs';
-import socialLinks from './social-links.json' with {type:'json'};
+import socialLinks,{withWebsite} from './social-links.mjs';
 
 const SCOPES=['https://www.googleapis.com/auth/youtube.upload','https://www.googleapis.com/auth/youtube.readonly'];
 const TOKEN='https://oauth2.googleapis.com/token';
@@ -113,7 +113,7 @@ export function uploadMetadata(info,publishAt,mode,now=new Date()) {
   if(info.status!=='complete'||info.draft)throw new Error('Only a completed production video can be uploaded');
   if(!['kk','ru'].includes(info.language))throw new Error('Video language is missing');
   const heading=info.language==='ru'?'Мы также здесь:':'Біз басқа желілерде:';
-  const description=[info.description,[heading,'TikTok: '+socialLinks.tiktok,'Instagram: '+socialLinks.instagram].join('\n')].filter(Boolean).join('\n\n');
+  const description=[withWebsite(info.description),[heading,'TikTok: '+socialLinks.tiktok,'Instagram: '+socialLinks.instagram].join('\n')].filter(Boolean).join('\n\n');
   if(!info.title||info.title.length>100||description.length>5000)throw new Error('Invalid video metadata');
   const status={privacyStatus:'public',selfDeclaredMadeForKids:false};
   if(mode==='schedule') {

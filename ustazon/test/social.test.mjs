@@ -51,6 +51,7 @@ test('both languages include the other social profile and YouTube in every capti
   f.job.language=language;
   const {text}=postInput(f.job,platform,f.options.config.buffer.channels[platform],'https://res.cloudinary.com/test/video/upload/test.mp4');
   assert(text.startsWith('Тест\n\nОписание\n\n'));
+  assert.equal(text.split('https://ustaz.daralearn.kz/').length-1,1);
   assert(text.includes(language==='kk'?'Біз басқа желілерде:':'Мы также здесь:'));
   assert(text.includes('YouTube: https://www.youtube.com/@DaraUstaz'));
   assert.equal(text.includes('https://www.instagram.com/daraustaz/'),platform==='tiktok');

@@ -3,6 +3,7 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {loadVisualAssets} from './visual-assets.mjs';
 import {makeCaptionTiming,validateCaptionTiming} from './caption-timing.mjs';
+import {withWebsite} from './social-links.mjs';
 
 export const KINDS = new Set(['hook', 'feature', 'steps', 'cta']);
 export const VISUALS = new Set(['stack', 'presentation', 'worksheet', 'games', 'triangle', 'file', 'counting', 'plan', 'comparison', 'cta', 'quiz', 'asset']);
@@ -130,7 +131,7 @@ export function metadata(topic, theme, timeline, extra = {}) {
   const destination = theme.cta.destination ? '\n\nСайт: '+theme.cta.destination+'\n'+(ru?'Ссылка доступна в профиле канала, если она там размещена.':'Сілтеме арна профилінде көрсетілгенде, сол жерден өтіңіз.') : '';
   return {
     title: topic.title,
-    description: topic.description + destination + '\n\n#Ustazon ' + (ru ? '#учитель' : '#мұғалім') + ' #shorts',
+    description: withWebsite(topic.description + destination) + '\n\n#Ustazon ' + (ru ? '#учитель' : '#мұғалім') + ' #shorts',
     tags: topic.tags,
     categoryId: '27',
     language: ru ? 'ru' : 'kk',
