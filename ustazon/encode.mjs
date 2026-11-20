@@ -139,7 +139,7 @@ export async function renderVideo(project, topic, {outputDir, width = 1080, fps 
   }
   const info = metadata(topic, project.theme, timeline, {
     width, height, narration: narrationPath ? 'provided-audio' : 'text-and-music',
-    subtitles: captions ? 'Burned-in phrase captions, timed approximately within each scene audio.' : 'Scene-timed narration script; visible video text is typeset separately.',
+    subtitles: captions ? 'Short phrase captions; local audio-pause timing when available, estimated syllable timing otherwise. Not word-level forced alignment.' : 'Narration script with phrase timings; visible video text is typeset separately.',
     musicAttribution, draft, sourceDate: project.catalog.sourceDate,
     status: previewOnly ? 'storyboard' : 'rendering', createdAt: new Date().toISOString(),
   });

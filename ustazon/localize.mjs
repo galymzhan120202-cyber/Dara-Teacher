@@ -21,10 +21,10 @@ export function localizedTheme(theme, language) {
   const result = structuredClone(theme);
   result.language = languageOf(language);
   if (result.language === 'ru') result.cta = {...result.cta,
-    label:'ИДЕЯ ДЛЯ СЛЕДУЮЩЕГО УРОКА', headline:'Полезные материалы\nдля ваших уроков.',
-    body:'Новые идеи и материалы Ustazon — в следующих видео.', action:'Подпишитесь на канал'};
+    label:'ДЛЯ СЛЕДУЮЩЕГО УРОКА', headline:'Сохраните\nк следующему уроку',
+    body:'Этот приём будет под рукой.', action:'Сохраните видео'};
   return result;
 }
 export function callToAction(language) {
-  return languageOf(language) === 'ru' ? 'Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков.' : 'Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар.';
+  return languageOf(language) === 'ru' ? 'Сохраните для следующего урока.' : 'Келесі сабаққа сақтап қойыңыз.';
 }

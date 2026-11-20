@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {loadVisualAssets} from './visual-assets.mjs';
+import {makeCaptionTiming,validateCaptionTiming} from './caption-timing.mjs';
 
 export const KINDS = new Set(['hook', 'feature', 'steps', 'cta']);
 export const VISUALS = new Set(['stack', 'presentation', 'worksheet', 'games', 'triangle', 'file', 'counting', 'plan', 'comparison', 'cta', 'quiz', 'asset']);
@@ -38,6 +39,7 @@ export function validateCatalog(catalog) {
         if(scene.crop&&(!Array.isArray(scene.crop)||scene.crop.length!==4||scene.crop.some(n=>!Number.isFinite(n)||n<0||n>1)||scene.crop[2]<=0||scene.crop[3]<=0||scene.crop[0]+scene.crop[2]>1||scene.crop[1]+scene.crop[3]>1))throw new Error(label+': invalid source crop');
       }
       requireText(scene.narration, `${label}.narration`, 500);
+      if(scene.captionTiming)validateCaptionTiming(scene.captionTiming,scene.narration,Math.min(scene.duration,scene.speechDuration||scene.duration));
       if (scene.kind !== 'cta') {
         requireText(scene.label, `${label}.label`, 100);
         requireText(scene.headline, `${label}.headline`, 160);
@@ -113,16 +115,9 @@ function srtTime(seconds) {
 export function captionCues(timeline) {
   const cues=[];
   for(const scene of timeline.scenes) {
-    const lines=[]; let line='';
-    for(const word of scene.narration.trim().split(/\s+/)) {
-      if(line && (line+' '+word).length>36){lines.push(line);line=word;}
-      else line=line?line+' '+word:word;
-    }
-    if(line)lines.push(line);
-    const chunks=[];
-    for(let i=0;i<lines.length;i+=2)chunks.push(lines.slice(i,i+2).join('\n'));
-    const duration=Math.min(scene.end-scene.start,scene.speechDuration || scene.end-scene.start);
-    chunks.forEach((text,i)=>cues.push({text,start:scene.start+duration*i/chunks.length,end:scene.start+duration*(i+1)/chunks.length}));
+    const duration=Math.min(scene.end-scene.start,scene.speechDuration || (scene.end-scene.start-(scene.pauseSeconds||0)));
+    const timing=scene.captionTiming?validateCaptionTiming(scene.captionTiming,scene.narration,duration):makeCaptionTiming(scene.narration,duration);
+    timing.cues.forEach(cue=>cues.push({...cue,start:scene.start+cue.start,end:scene.start+cue.end}));
   }
   return cues;
 }

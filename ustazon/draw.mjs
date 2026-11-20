@@ -1,5 +1,6 @@
 import {tr} from './localize.mjs';
 import {captionCues} from './model.mjs';
+import {materialCrop,activeEmphasis,projectRegion,countdownState} from './presentation.mjs';
 import {createCanvas, GlobalFonts} from '@napi-rs/canvas';
 
 const W = 1080, H = 1920;
@@ -141,24 +142,27 @@ function illustration(ctx, visual, t, theme, scene) {
   ctx.restore();
 }
 
-function materialVisual(ctx,scene,asset,t,theme) {
+function materialVisual(ctx,scene,asset,t,theme,topY) {
   const c=theme.colors,f=theme.font.family,img=asset.image;
-  const y=scene.layout==='takeaway'?820:760,h=scene.layout==='takeaway'?620:680;
-  roundRect(ctx,96,y,816,h,28,c.white,c.line);
-  roundRect(ctx,96,y,8,h,4,c.primary);
-  const crop=scene.crop||[0,0,1,1];
+  const y=topY,h=1470-y;
+  roundRect(ctx,72,y,888,h,28,c.white,c.line);
+  const crop=materialCrop(scene);
   const sx=crop[0]*img.width,sy=crop[1]*img.height,sw=crop[2]*img.width,sh=crop[3]*img.height;
-  const availableH=h-145,scale=Math.min(768/sw,availableH/sh);
-  const w=sw*scale,ih=sh*scale,x=120+(768-w)/2,top=y+20+(availableH-ih)/2;
-  ctx.save();ctx.beginPath();ctx.roundRect(118,y+18,772,availableH+4,16);ctx.clip();
-  ctx.drawImage(img,sx,sy,sw,sh,x,top,w,ih);ctx.restore();
-  const caption=fitText(ctx,scene.assetCaption,{width:740,height:70,size:28,min:24,weight:650,family:f});
-  paintText(ctx,caption,126,y+h-116,c.ink);
-  smallText(ctx,theme.language==='ru'?'Оригинал: казахский язык':'Түпнұсқа: қазақша',126,y+h-49,24,c.muted,f,500);
-  if(scene.pauseSeconds&&t>=(scene.speechDuration||3)) {
-    roundRect(ctx,792,y+22,86,72,20,c.primary);
-    smallText(ctx,String(Math.max(1,Math.ceil(scene.duration-t))),822,y+39,36,c.white,f,750);
+  const availableH=h-108,scale=Math.min(856/sw,availableH/sh);
+  const w=sw*scale,ih=sh*scale,x=88+(856-w)/2,top=y+12+(availableH-ih)/2;
+  ctx.save();ctx.beginPath();ctx.roundRect(86,y+10,860,availableH+4,16);ctx.clip();
+  ctx.drawImage(img,sx,sy,sw,sh,x,top,w,ih);
+  for(const region of activeEmphasis(scene,t)) {
+    const box=projectRegion(region,crop,{x,y:top,w,h:ih});
+    if(!box)continue;
+    ctx.strokeStyle=c.primary;ctx.lineWidth=6;
+    ctx.shadowColor=c.white;ctx.shadowBlur=4;
+    ctx.beginPath();ctx.roundRect(box.x,box.y,box.w,box.h,Math.min(14,box.w/4,box.h/4));ctx.stroke();
   }
+  ctx.restore();
+  const caption=fitText(ctx,scene.assetCaption,{width:740,height:70,size:28,min:24,weight:650,family:f});
+  paintText(ctx,caption,98,y+h-88,c.ink);
+  smallText(ctx,theme.language==='ru'?'Оригинал: казахский язык':'Түпнұсқа: қазақша',98,y+h-35,22,c.muted,f,500);
 }
 
 export function makeRenderer(theme, timeline, {width = 1080, height = 1920, fontPath, captions = false, assets = new Map()} = {}) {
@@ -176,10 +180,12 @@ export function makeRenderer(theme, timeline, {width = 1080, height = 1920, font
     const label = fitText(ctx, content.label, {width:816, height:48, size:27, min:23, weight:700, family:f});
     const action = scene.kind === 'cta' ? fitText(ctx, theme.cta.action, {width:680, height:100, size:40, min:30, weight:700, family:f}) : null;
     const steps = scene.steps?.map(text => fitText(ctx, text, {width:660, height:98, size:40, min:32, weight:650, family:f}));
-    return {headline, body, label, action, steps};
+    const materialTop=scene.visual==='asset'?Math.max(580,336+headline.height+(body?.height||0)+36):null;
+    if(materialTop&&materialTop>850)throw new Error('Material heading leaves too little space for the source image');
+    return {headline, body, label, action, steps,materialTop};
   });
 
-  const cues=captions?captionCues(timeline).map(cue=>({...cue,layout:fitText(ctx,cue.text,{width:764,height:100,size:34,min:28,weight:600,family:f})})):[];
+  const cues=captions?captionCues(timeline).map(cue=>({...cue,layout:fitText(ctx,cue.text,{width:780,height:118,size:46,min:34,weight:700,family:f})})):[];
   function draw(frame) {
     const scene = timeline.scenes.find(item => frame >= item.startFrame && frame < item.endFrame);
     if (!scene) throw new Error(`Invalid frame: ${frame}`);
@@ -203,9 +209,10 @@ export function makeRenderer(theme, timeline, {width = 1080, height = 1920, font
     // The opening question and source image must be readable on the first frame.
     const entry = scene.kind === 'hook' ? 1 : ease(local / .7);
     ctx.save(); ctx.globalAlpha = .25 + entry * .75; ctx.translate(0, (1 - entry) * 38);
-    paintText(ctx, layout.label, 96, 290, c.primary);
-    paintText(ctx, layout.headline, 96, 368, c.ink);
-    if (layout.body) paintText(ctx, layout.body, 96, 400 + layout.headline.height, c.muted);
+    const headingY=scene.visual==='asset'?304:368;
+    paintText(ctx, layout.label, 96, scene.visual==='asset'?244:290, c.primary);
+    paintText(ctx, layout.headline, 96, headingY, c.ink);
+    if (layout.body) paintText(ctx, layout.body, 96, headingY+32 + layout.headline.height, c.muted);
     if (scene.kind === 'steps') {
       layout.steps.forEach((step, i) => {
         const reveal = ease((local - .25 * i) / .55);
@@ -223,14 +230,22 @@ export function makeRenderer(theme, timeline, {width = 1080, height = 1920, font
       roundRect(ctx, 96, 1360, 816, 116, 32, c.primary);
       paintText(ctx, layout.action, 140, 1360 + (116 - layout.action.height) / 2, c.white);
       line(ctx, [[832, 1403], [850, 1418], [832, 1433]], c.white, 5);
-    } else if(scene.visual==='asset') materialVisual(ctx,scene,assets.get(scene.assetId),local,theme);
+    } else if(scene.visual==='asset') materialVisual(ctx,scene,assets.get(scene.assetId),local,theme,layout.materialTop);
     else illustration(ctx, scene.visual, local, theme, scene);
     ctx.restore();
+    const countdown=countdownState(scene,local);
+    if(countdown&&scene.visual==='asset') {
+      roundRect(ctx,72,1500,888,156,24,c.ink);
+      smallText(ctx,theme.language==='ru'?'Время подумать':'Ойланып көріңіз',108,1538,42,c.white,f,700);
+      ctx.beginPath();ctx.arc(874,1578,48,-Math.PI/2,-Math.PI/2+Math.PI*2*countdown.progress);
+      ctx.strokeStyle=c.accent;ctx.lineWidth=8;ctx.stroke();
+      smallText(ctx,String(countdown.seconds),859,1548,48,c.white,f,800);
+    }
     if(captions) {
       const cue=cues.find(item=>frame/timeline.fps>=item.start && frame/timeline.fps<item.end);
-      if(cue) {
-        roundRect(ctx,96,1510,816,140,24,c.ink);
-        paintText(ctx,cue.layout,122,1510+(140-cue.layout.height)/2,c.white);
+      if(cue&&!countdown) {
+        roundRect(ctx,72,1500,888,156,24,c.ink);
+        paintText(ctx,cue.layout,108,1500+(156-cue.layout.height)/2,c.white);
       }
     }
     smallText(ctx, scene.kind === 'cta' ? tr(theme, 'КЕЛЕСІ ВИДЕОДА КЕЗДЕСКЕНШЕ') : tr(theme, 'БІР САБАҚ. БІР ЖАҢА ИДЕЯ.'), 96, captions ? 1702 : 1607, 23, c.muted, f, 550);

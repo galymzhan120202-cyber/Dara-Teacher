@@ -1,25 +1,25 @@
 {
   "version": 1,
-  "createdAt": "2026-11-14",
-  "source": "Existing user-requested Gemini narration generated on 2026-11-13; reused without an API request.",
+  "createdAt": "2026-11-20",
+  "source": "User-requested single-action CTA; prepared once with existing free-tier limits.",
   "items": [
     {
       "language": "kk",
       "model": "gemini-3.8-flash-tts",
       "voice": "Kore",
-      "text": "Ustazon арнасына жазылыңыз: мұнда сабаққа арналған идеялар мен материалдар бар.",
-      "file": "cta-kk.wav",
-      "cacheKey": "4d3dcee3247865180ddb414bf862e884cdaba643a9f0bddfcac24b8d422d18b9",
-      "sha256": "1374b8e6dd80d0490b375420d984af427519aaf64cbb146fd9cea0482a47da42"
+      "text": "Келесі сабаққа сақтап қойыңыз.",
+      "file": "cta-save-kk.wav",
+      "cacheKey": "3dfe0843cdf8c1dd64cfa12c9184990d5f1c656105c024783363216e0aaef855",
+      "sha256": "ad22a87cbee9f03a03cf6421c19033a670d6aa25c2168ff3d649b06496671eab"
     },
     {
       "language": "ru",
       "model": "gemini-3.8-flash-tts",
       "voice": "Kore",
-      "text": "Подпишитесь на Ustazon: здесь идеи и материалы для ваших уроков.",
-      "file": "cta-ru.wav",
-      "cacheKey": "36a600bd43734d945df9dbd8f731effad2172c40be67618624e6f5a97c15505c",
-      "sha256": "d172e4db6f34091105240b43a3dc5a32c19385266508e5e5fa7087d3b6079b5a"
+      "text": "Сохраните для следующего урока.",
+      "file": "cta-save-ru.wav",
+      "cacheKey": "a49bdd526ad6a75ac92e1316bf68e448155896bb83f24815088aca79c7a6b116",
+      "sha256": "f29e2d36a8374d7a5f6d47df9d50a29d36040868e630ee33323dc1ca4b8be3b3"
     }
   ]
 }

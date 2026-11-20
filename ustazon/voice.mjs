@@ -4,6 +4,7 @@ import {randomUUID} from 'node:crypto';
 import {speechCacheKey,preparedNarration} from './prepared-audio.mjs';
 import {runEncoder,voiceDuration} from './encode.mjs';
 import {createTimeline,validateCatalog} from './model.mjs';
+import {makeCaptionTiming,speechRegions} from './caption-timing.mjs';
 export function pcmToWav(pcm,rate=24000) {
   const wav=Buffer.alloc(44+pcm.length);
   wav.write('RIFF'); wav.writeUInt32LE(36+pcm.length,4); wav.write('WAVEfmt ',8);
@@ -44,7 +45,7 @@ export async function narrateTopic({client,config,topic,cacheDir,outputFile,onSc
       }
       duration ||= await voiceDuration(file);await fs.utimes(file,new Date(),new Date());
       const tail=scene.pauseSeconds||(scene.quiz?.phase==='question'?3.5:.35);
-      const planned=Math.ceil(Math.max(scene.duration,duration+tail)*config.video.fps)/config.video.fps;
+      const planned=Math.ceil((scene.pauseSeconds?Math.max(2,duration+tail):Math.max(scene.duration,duration+tail))*config.video.fps)/config.video.fps;
       if(planned<=20){scene.duration=planned;break;}
       if(attempt===0&&scene.shortNarration&&scene.narration!==scene.shortNarration) {
         scene.narration=scene.shortNarration;
@@ -55,6 +56,7 @@ export async function narrateTopic({client,config,topic,cacheDir,outputFile,onSc
       throw Object.assign(new Error('Narration exceeds 20 seconds in scene '+(i+1)+'. Review the short narration before retrying.'),{code:'NARRATION_TOO_LONG'});
     }
     scene.speechDuration=duration;
+    scene.captionTiming=makeCaptionTiming(scene.narration,duration,speechRegions(await fs.readFile(file),duration));
     files.push(file);await onScene(i+1,voiced.scenes.length,cached,[...files]);
   }
   validateCatalog({version:1,source:'Voiced script',topics:[voiced]});

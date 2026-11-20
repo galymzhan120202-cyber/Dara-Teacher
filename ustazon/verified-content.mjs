@@ -2,10 +2,11 @@ import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {validateCatalog} from './model.mjs';
 import {callToAction} from './localize.mjs';
+import {PRESENTATION_REVISION} from './presentation.mjs';
 export const bank=JSON.parse(await fs.readFile(new URL('./stories.json',import.meta.url),'utf8'));
 const manifest=JSON.parse(await fs.readFile(new URL('./assets/materials/manifest.json',import.meta.url),'utf8'));
 const assets=new Map(manifest.assets.map(a=>[a.id,a]));
-export const evidenceRevision=createHash('sha256').update(JSON.stringify({bank,manifest})).digest('hex');
+export const evidenceRevision=createHash('sha256').update(JSON.stringify({bank,manifest,presentation:PRESENTATION_REVISION})).digest('hex');
 function contentError(message,code='CONTENT_REVIEW_REQUIRED'){return Object.assign(new Error(message),{code});}
 export function makeVerifiedTopic(job,story) {
   const text=story[job.language];if(!text)throw contentError('Unsupported content language');
@@ -45,6 +46,7 @@ export function assertVerifiedTopic(topic) {
   topic.scenes.forEach((scene,i)=>{
     const canonical=expected.scenes[i],actual={...scene};
     delete actual.speechDuration;
+    delete actual.captionTiming;
     actual.duration=canonical.duration;
     if(canonical.shortNarration&&actual.narration===canonical.shortNarration)actual.narration=canonical.narration;
     if(JSON.stringify(actual)!==JSON.stringify(canonical))throw contentError('Unverified scene '+(i+1));

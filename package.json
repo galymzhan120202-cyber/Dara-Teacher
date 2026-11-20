@@ -11,7 +11,7 @@
     "video:list": "node ustazon/cli.mjs list",
     "video:check": "node ustazon/cli.mjs check",
     "video:preview": "node ustazon/cli.mjs preview",
-    "test:ustazon": "node --test ustazon/test/model.test.mjs ustazon/test/encode.test.mjs ustazon/test/automation.test.mjs ustazon/test/youtube.test.mjs ustazon/test/reliability.test.mjs ustazon/test/budget.test.mjs ustazon/test/quality.test.mjs ustazon/test/remote-state.test.mjs ustazon/test/social.test.mjs",
+    "test:ustazon": "node --test ustazon/test/model.test.mjs ustazon/test/encode.test.mjs ustazon/test/automation.test.mjs ustazon/test/youtube.test.mjs ustazon/test/reliability.test.mjs ustazon/test/budget.test.mjs ustazon/test/quality.test.mjs ustazon/test/remote-state.test.mjs ustazon/test/social.test.mjs ustazon/test/presentation.test.mjs",
     "video:ai:probe": "node ustazon/daily.mjs probe",
     "video:daily": "node ustazon/daily.mjs generate",
     "video:plan": "node ustazon/daily.mjs plan",
