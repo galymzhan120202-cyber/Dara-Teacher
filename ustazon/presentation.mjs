@@ -1,6 +1,6 @@
 import {captionCues} from './model.mjs';
 
-export const PRESENTATION_REVISION='2026-11-20-focus-captions-v1';
+export const PRESENTATION_REVISION='2026-11-20-daraustaz-site-cta-v2';
 
 export function countdownState(scene,local) {
   if(!scene.pauseSeconds)return null;

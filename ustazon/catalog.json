@@ -11,7 +11,7 @@
       "storyId": "urinary-observe",
       "materialId": "47632",
       "contentKey": "urinary-observe:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -80,7 +80,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -93,7 +93,7 @@
       "storyId": "urinary-observe",
       "materialId": "47632",
       "contentKey": "urinary-observe:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -162,7 +162,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -175,7 +175,7 @@
       "storyId": "urinary-walkthrough",
       "materialId": "47632",
       "contentKey": "urinary-walkthrough:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -244,7 +244,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -257,7 +257,7 @@
       "storyId": "urinary-walkthrough",
       "materialId": "47632",
       "contentKey": "urinary-walkthrough:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -326,7 +326,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -339,7 +339,7 @@
       "storyId": "urinary-four-organs",
       "materialId": "47632",
       "contentKey": "urinary-four-organs:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -402,7 +402,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -415,7 +415,7 @@
       "storyId": "urinary-four-organs",
       "materialId": "47632",
       "contentKey": "urinary-four-organs:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -478,7 +478,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -491,7 +491,7 @@
       "storyId": "urinary-goal",
       "materialId": "47632",
       "contentKey": "urinary-goal:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -560,7 +560,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -573,7 +573,7 @@
       "storyId": "urinary-goal",
       "materialId": "47632",
       "contentKey": "urinary-goal:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -642,7 +642,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -655,7 +655,7 @@
       "storyId": "urinary-opening",
       "materialId": "47632",
       "contentKey": "urinary-opening:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -724,7 +724,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -737,7 +737,7 @@
       "storyId": "urinary-opening",
       "materialId": "47632",
       "contentKey": "urinary-opening:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -806,7 +806,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -819,7 +819,7 @@
       "storyId": "urinary-check-goal",
       "materialId": "47632",
       "contentKey": "urinary-check-goal:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -888,7 +888,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -901,7 +901,7 @@
       "storyId": "urinary-check-goal",
       "materialId": "47632",
       "contentKey": "urinary-check-goal:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -970,7 +970,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -983,7 +983,7 @@
       "storyId": "diffusion-pair",
       "materialId": "47471",
       "contentKey": "diffusion-pair:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -1051,7 +1051,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -1064,7 +1064,7 @@
       "storyId": "diffusion-pair",
       "materialId": "47471",
       "contentKey": "diffusion-pair:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -1132,7 +1132,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -1145,7 +1145,7 @@
       "storyId": "diffusion-excerpt",
       "materialId": "47471",
       "contentKey": "diffusion-excerpt:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -1212,7 +1212,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -1225,7 +1225,7 @@
       "storyId": "diffusion-excerpt",
       "materialId": "47471",
       "contentKey": "diffusion-excerpt:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -1292,7 +1292,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -1305,7 +1305,7 @@
       "storyId": "diffusion-arrows",
       "materialId": "47471",
       "contentKey": "diffusion-arrows:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -1361,7 +1361,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -1374,7 +1374,7 @@
       "storyId": "diffusion-arrows",
       "materialId": "47471",
       "contentKey": "diffusion-arrows:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -1430,7 +1430,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -1443,7 +1443,7 @@
       "storyId": "diffusion-evidence",
       "materialId": "47471",
       "contentKey": "diffusion-evidence:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -1511,7 +1511,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -1524,7 +1524,7 @@
       "storyId": "diffusion-evidence",
       "materialId": "47471",
       "contentKey": "diffusion-evidence:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -1592,7 +1592,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -1605,7 +1605,7 @@
       "storyId": "diffusion-table",
       "materialId": "47471",
       "contentKey": "diffusion-table:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -1673,7 +1673,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -1686,7 +1686,7 @@
       "storyId": "diffusion-table",
       "materialId": "47471",
       "contentKey": "diffusion-table:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -1754,7 +1754,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     },
@@ -1767,7 +1767,7 @@
       "storyId": "diffusion-read-task",
       "materialId": "47471",
       "contentKey": "diffusion-read-task:kk",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "мұғалім",
@@ -1830,7 +1830,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Келесі сабаққа сақтап қойыңыз."
+          "narration": "DaraUstaz сайтына қосылыңыз."
         }
       ]
     },
@@ -1843,7 +1843,7 @@
       "storyId": "diffusion-read-task",
       "materialId": "47471",
       "contentKey": "diffusion-read-task:ru",
-      "evidenceRevision": "1c5466cca4f445397a40fe72b3bf51206a6a4cb8a0adcfe6f9edeea4bc227482",
+      "evidenceRevision": "7c08ada713eb1c0be771eb2d5578799a187ad982348ce4ca37507a4505bf58ba",
       "tags": [
         "Ustazon",
         "учитель",
@@ -1906,7 +1906,7 @@
           "kind": "cta",
           "duration": 5,
           "visual": "cta",
-          "narration": "Сохраните для следующего урока."
+          "narration": "Заходите на сайт DaraUstaz."
         }
       ]
     }

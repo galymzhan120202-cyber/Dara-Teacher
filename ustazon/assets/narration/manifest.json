@@ -7,19 +7,19 @@
       "language": "kk",
       "model": "gemini-3.8-flash-tts",
       "voice": "Kore",
-      "text": "Келесі сабаққа сақтап қойыңыз.",
-      "file": "cta-save-kk.wav",
-      "cacheKey": "3dfe0843cdf8c1dd64cfa12c9184990d5f1c656105c024783363216e0aaef855",
-      "sha256": "ad22a87cbee9f03a03cf6421c19033a670d6aa25c2168ff3d649b06496671eab"
+      "text": "DaraUstaz сайтына қосылыңыз.",
+      "file": "cta-site-kk.wav",
+      "cacheKey": "48152131083fb6c8167a961f9d581d3fcfa14db80c9602f6bd39bcce1c69e075",
+      "sha256": "73a4a7a354cf270cb06b0eb2134014ce703c91174cb662347ba62c6c5da7169a"
     },
     {
       "language": "ru",
       "model": "gemini-3.8-flash-tts",
       "voice": "Kore",
-      "text": "Сохраните для следующего урока.",
-      "file": "cta-save-ru.wav",
-      "cacheKey": "a49bdd526ad6a75ac92e1316bf68e448155896bb83f24815088aca79c7a6b116",
-      "sha256": "f29e2d36a8374d7a5f6d47df9d50a29d36040868e630ee33323dc1ca4b8be3b3"
+      "text": "Заходите на сайт DaraUstaz.",
+      "file": "cta-site-ru.wav",
+      "cacheKey": "5a88d69a410fff8266b74c9251fd9a4637f24bfe614e005900e59681652afd85",
+      "sha256": "bb4362ad4f2d570b5c14e728e0ad1a64b22cd70fbef52208923b62895010630f"
     }
   ]
 }

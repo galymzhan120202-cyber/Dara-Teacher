@@ -131,7 +131,7 @@ function illustration(ctx, visual, t, theme, scene) {
       smallText(ctx, text, 135, y, 34, c.ink, f);
     });
   } else {
-    const labels = visual === 'cta' ? [tr(theme, 'Сабаққа идея'), tr(theme, 'Мұғалімге көмек'), 'Ustazon'] : [tr(theme, 'Презентация'), tr(theme, 'Жұмыс парағы'), tr(theme, 'Ойындар')];
+    const labels = visual === 'cta' ? [tr(theme, 'Сабаққа идея'), tr(theme, 'Мұғалімге көмек'), 'DaraUstaz'] : [tr(theme, 'Презентация'), tr(theme, 'Жұмыс парағы'), tr(theme, 'Ойындар')];
     labels.forEach((label, i) => {
       const y = 54 + i * 126, x = 50 + i * 28;
       roundRect(ctx, x, y, 660, 94, 24, i === 2 ? c.primary : c.background, i === 2 ? null : c.line);

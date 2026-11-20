@@ -19,10 +19,10 @@
     "attributionFile": "../music/fallback_attribution.json"
   },
   "cta": {
-    "label": "КЕЛЕСІ САБАҚҚА ИДЕЯ",
-    "headline": "Келесі сабаққа\nсақтап қойыңыз",
-    "body": "Бұл әдіс керек кезде қолыңызда болсын.",
-    "action": "Видеоны сақтаңыз",
-    "destination": ""
+    "label": "DARAUSTAZ — МҰҒАЛІМГЕ АРНАЛҒАН",
+    "headline": "DaraUstaz сайтына\nқосылыңыз",
+    "body": "ustaz.daralearn.kz",
+    "action": "Сілтеме сипаттамада",
+    "destination": "https://ustaz.daralearn.kz/"
   }
 }
