@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import {runSocial,postInput,BufferClient,uploadSignature} from '../social.mjs';
 import {planDay,slotsForDate} from '../schedule.mjs';
 import {validateSettings} from '../config.mjs';
+import {selectWorkerJobs} from '../reliability.mjs';
 const production=JSON.parse(await fs.readFile(new URL('../automation.json',import.meta.url),'utf8'));
 function fixture(){
  const config=structuredClone(production);config.buffer.enabled=true;
@@ -24,6 +25,16 @@ test('one daily video alternates languages at 15:00 for a year, all formats rota
 test('disabled publishing and STOP do not call external services',async()=>{
  const f=fixture();f.options.config.buffer.enabled=false;await runSocial(f.options);assert.equal(f.counts().mutations,0);assert.equal(f.counts().uploads,0);
  f.options.config.buffer.enabled=true;f.options.stopped=async()=>true;await runSocial(f.options);assert.equal(f.counts().uploads,0);
+});
+test('manual test is isolated from daily planning, carry-over, worker and default social publishing',async()=>{
+ const f=fixture();f.job.manualTest=true;f.job.id='manual-test';
+ assert.equal(selectWorkerJobs(f.options.state,f.options.date,f.options.config).length,0);
+ await runSocial(f.options);assert.equal(f.counts().mutations,0);
+ const [daily]=planDay(f.options.state,f.options.date,f.options.config);assert.notEqual(daily.id,f.job.id);
+ const tomorrow=planDay({jobs:[f.job]},'2026-11-20',f.options.config);assert.notEqual(tomorrow[0],f.job);
+ f.options.onlyJobId=f.job.id;await runSocial(f.options);assert.equal(f.counts().mutations,2);assert.equal(daily.social,undefined);
+ f.job.date='2026-11-18';f.job.youtube={sessionUrl:'unfinished'};
+ assert(!selectWorkerJobs(f.options.state,f.options.date,f.options.config).includes(f.job));
 });
 test('one upload, two independent posts; restarts reconcile without duplicates',async()=>{
  const f=fixture();await runSocial(f.options);assert.equal(f.counts().mutations,2);assert.equal(f.counts().uploads,1);

@@ -35,7 +35,7 @@ export function slotsForDate(date,config) {
 }
 export function planDay(state,date,config) {
   validateDate(date);
-  const existing=state.jobs.filter(job=>job.date===date && job.slot!=='sample'&&!job.superseded);
+  const existing=state.jobs.filter(job=>job.date===date && job.slot!=='sample'&&!job.superseded&&!job.manualTest);
   if(config.slots.length===1&&existing.length>1){
     // Never silently migrate a day with an external publication in progress.
     if(existing.some(j=>j.youtube?.videoId||j.youtube?.sessionUrl||j.youtube?.initiating||Object.values(j.social||{}).some(r=>r.intent)))throw new Error('Review legacy multi-slot day before publishing with the daily limit');
@@ -47,7 +47,7 @@ export function planDay(state,date,config) {
   }
   // Once planned, a day keeps its identities and languages across config changes/restarts.
   if(existing.length)return existing;
-  const carry=config.runtime?.carryUnfinished?state.jobs.filter(j=>j.date<date&&j.slot!=='sample'&&!j.superseded&&!Object.values(j.social||{}).some(r=>r.intent||r.postId)&&!j.youtube?.videoId&&!j.youtube?.sessionUrl&&!j.youtube?.initiating&&j.status!=='uploaded'&&!Object.values(j.retries||{}).some(r=>r.kind==='attention')).sort((a,b)=>a.date.localeCompare(b.date)):[];
+  const carry=config.runtime?.carryUnfinished?state.jobs.filter(j=>j.date<date&&j.slot!=='sample'&&!j.superseded&&!j.manualTest&&!Object.values(j.social||{}).some(r=>r.intent||r.postId)&&!j.youtube?.videoId&&!j.youtube?.sessionUrl&&!j.youtube?.initiating&&j.status!=='uploaded'&&!Object.values(j.retries||{}).some(r=>r.kind==='attention')).sort((a,b)=>a.date.localeCompare(b.date)):[];
   const used=new Set(),jobs=[];
   for(const slot of slotsForDate(date,config)) {
     const candidates=carry.filter(j=>!used.has(j.id)&&j.language===slot.language);

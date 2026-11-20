@@ -66,6 +66,15 @@ export async function checkConnection(config,{fetchImpl=fetch}={}) {
   const channel=await verifyChannel(token,pinnedChannel(config),fetchImpl);
   return {...channel,offlineAccess:true,refreshVerified:true};
 }
+export async function checkVideo(config,id,{fetchImpl=fetch}={}) {
+  if(!/^[A-Za-z0-9_-]{11}$/.test(id))throw new Error('Invalid YouTube video ID');
+  const token=await accessToken(config,{fetchImpl});
+  const response=await request('https://www.googleapis.com/youtube/v3/videos?part=snippet,status,processingDetails&id='+id,{headers:{Authorization:'Bearer '+token}},fetchImpl);
+  const data=await responseJSON(response,'YouTube video');
+  const video=data.items?.find(v=>v.id===id);
+  if(!video||video.snippet?.channelId!==pinnedChannel(config))throw new Error('Video is missing or belongs to a different channel');
+  return {id,privacyStatus:video.status?.privacyStatus,uploadStatus:video.status?.uploadStatus,processingStatus:video.processingDetails?.processingStatus,url:'https://www.youtube.com/watch?v='+id};
+}
 export async function authorize(config) {
   const expected=pinnedChannel(config),client=await clientSettings(config);
   const verifier=randomBytes(48).toString('base64url'),state=randomBytes(24).toString('base64url');

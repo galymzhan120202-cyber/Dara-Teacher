@@ -68,9 +68,10 @@ export async function checkSocial(config,credentials,client=new BufferClient(cre
 
 // Each intent is durably checkpointed before the external write. Uncertain writes
 // require manual reconciliation, never automatic re-creation.
-export async function runSocial({state,date,config,credentials,save,claim=()=>{},ready=async()=>true,validate=()=>{},client=new BufferClient(credentials.bufferToken),upload=uploadVideo,now=()=>new Date(),stopped=async()=>false}) {
+export async function runSocial({state,date,config,credentials,save,claim=()=>{},ready=async()=>true,validate=()=>{},client=new BufferClient(credentials.bufferToken),upload=uploadVideo,now=()=>new Date(),stopped=async()=>false,onlyJobId=null}) {
   if(!config.buffer?.enabled||await stopped())return;
   for(const job of state.jobs){
+    if(onlyJobId&&job.id!==onlyJobId||job.manualTest&&job.id!==onlyJobId)continue;
     if(job.slot==='sample'||job.draft||job.superseded)continue;
     for(const receipt of Object.values(job.social||{})){
       if(receipt.postId&&!['sent','error','draft'].includes(receipt.status)){

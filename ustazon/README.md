@@ -101,6 +101,8 @@ stories.json — негізгі сценарий қоры. Әр story үшін �
 
 ## Ресми техникалық дереккөздер
 
+Бір реттік жариялау сынағы: `Ustazon single-video publication test` workflow тек қолмен іске қосылады, күнтізбелік кестесі жоқ. Бір қазақша видео жасап, Instagram/TikTok-қа Buffer арқылы және YouTube-қа тікелей жібереді; нақты жарияланғанын 15 минутқа дейін тексереді. `manual-test.json` нәтижесі Actions артефактісінде сақталады. Күнделікті автоматтандыру қосқыштары өзгермейді. Сол run-ды қайта орындау бұрынғы job пен жариялау түбіртектерін қолданады; белгісіз нәтижелі пост автоматты қайта жасалмайды. Қолмен сынау job-тары күнделікті кезекке және келесі күнге тасымалдауға кірмейді.
+
 - [GitHub Release assets API](https://docs.github.com/en/rest/releases/assets) — шифрланған файлдарды сақтау/оқу API-і.
 - [GitHub schedule](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule) — жоспарлы іске қосудың шектеулері.
 - [Gemini rate limits](https://aistudio.google.com/docs/rate-limits) — жобалық квота және қайта есептеу уақыты.

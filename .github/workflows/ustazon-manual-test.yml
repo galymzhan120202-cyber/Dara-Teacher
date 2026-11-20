@@ -1,0 +1,52 @@
+name: Ustazon single-video publication test
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ustazon-production
+  cancel-in-progress: false
+jobs:
+  test-publication:
+    if: vars.USTAZON_AUTOMATION_ENABLED != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      USTAZON_STATE_KEY: ${{ secrets.USTAZON_STATE_KEY }}
+      USTAZON_MANUAL_TEST: 'true'
+      USTAZON_BUFFER_ENABLED: 'true'
+      USTAZON_YOUTUBE_ENABLED: 'true'
+      BUFFER_API_TOKEN: ${{ secrets.BUFFER_API_TOKEN }}
+      CLOUDINARY_CLOUD_NAME: ${{ vars.CLOUDINARY_CLOUD_NAME }}
+      CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+      CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_FREE_TIER_CONFIRMED: ${{ vars.GEMINI_FREE_TIER_CONFIRMED || 'false' }}
+      YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID }}
+      YOUTUBE_CLIENT_JSON_B64: ${{ secrets.YOUTUBE_CLIENT_JSON_B64 }}
+      YOUTUBE_TOKEN_JSON_B64: ${{ secrets.YOUTUBE_TOKEN_JSON_B64 }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: ustazon/package-lock.json
+      - run: npm ci --prefix ustazon
+      - name: Restore existing encrypted history
+        id: restore
+        run: node ustazon/remote-state.mjs restore
+      - name: Create exactly one video and verify publication
+        run: node ustazon/manual-test.mjs
+      - name: Prepare review files
+        if: always() && steps.restore.outcome == 'success'
+        run: node ustazon/review.mjs
+      - uses: actions/upload-artifact@v7
+        if: always() && steps.restore.outcome == 'success'
+        with:
+          name: ustazon-manual-test-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ustazon/review/
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: warn

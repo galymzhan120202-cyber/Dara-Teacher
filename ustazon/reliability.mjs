@@ -82,8 +82,8 @@ export function retryJob(job) {
   if(job.status==='failed')job.status=job.outputDir?'rendering':job.topic?'scripted':'planned';
 }
 export function selectWorkerJobs(state,date,config) {
-  const current=state.jobs.filter(job=>job.date===date&&job.slot!=='sample');
-  const unfinished=state.jobs.filter(job=>job.date!==date&&remainingUpload(job));
+  const current=state.jobs.filter(job=>job.date===date&&job.slot!=='sample'&&!job.manualTest);
+  const unfinished=state.jobs.filter(job=>job.date!==date&&!job.manualTest&&remainingUpload(job));
   return [...current,...unfinished].sort((a,b)=>(a.publishAt||'').localeCompare(b.publishAt||''));
 }
 
